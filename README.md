@@ -15,7 +15,7 @@ mBBS Data Paper (no link yet)
 ### Spring Bird Count
 [Chapel Hill Bird Club Spring Count Data](https://chbc.carolinanature.com/lists.html)
 
-[New Hope Audobon Spring Count Data (Jordan Lake)](url)
+[New Hope Audobon Spring Count Data (Jordan Lake)](https://newhopebirdalliance.org/get-involved/community-science/bird-count-charts/)
 
 ### BIRDBASE
 [BIRDBASE Data Paper](https://www.nature.com/articles/s41597-025-05615-3#Sec6)
