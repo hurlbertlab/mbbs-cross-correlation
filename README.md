@@ -13,9 +13,21 @@ mBBS Data Paper (no link yet)
 [National Audobon Christmas Bird Count Data](https://netapp.audubon.org/cbcobservation/)
 
 ### Spring Bird Count
-[Chapel Hill Bird Club Spring Count Data](https://chbc.carolinanature.com/lists.html)
+[Chapel Hill Bird Club Spring Count Data](https://chbc.carolinanature.com/lists.html) (NCCP)
 
-[New Hope Audobon Spring Count Data (Jordan Lake)](https://newhopebirdalliance.org/get-involved/community-science/bird-count-charts/)
+[New Hope Audobon Spring Count Data (Jordan Lake)](https://newhopebirdalliance.org/get-involved/community-science/bird-count-charts/) (NCJL)
+
+
+#### Potential NCDU Leads
+
+[Bird Durham](https://sites.google.com/view/burddurm)
+
+#### Potential NCRA/NCFL Leads
+
+[Emails only](https://chbc.carolinanature.com/countsched.html)
+
+*May need to export spring bird count lists from eBird if they exist there*
+
 
 ### BIRDBASE
 [BIRDBASE Data Paper](https://www.nature.com/articles/s41597-025-05615-3#Sec6)
