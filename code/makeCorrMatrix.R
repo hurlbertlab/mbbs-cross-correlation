@@ -22,7 +22,7 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
   #Opening a PNG device
   png(filename = paste("figures/withInSig/", name_png, ".png", sep = ""), width = width, height = width)
   cor_matrix_plot <- corrplot(cor_matrix, order="hclust", tl.col = "black", 
-                         tl.cex = fontSize, cl.cex = fontSize*1.5)
+                         tl.cex = fontSize, cl.cex = fontSize*1.5, sig.level = 0.10)
   title(main=title, cex.main = titleSize)
   dev.off()
   
