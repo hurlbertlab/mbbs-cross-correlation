@@ -17,29 +17,41 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
   cor_matrix <- cor_matrix[, -1]
   #Drop the year row (first row)
   cor_matrix <- cor_matrix[-1, ]
-  
+
+  #Creates corrplot figure with insig values
   #Opening a PNG device
-  png(filename = paste("figures/", name_png, ".png", sep = ""), width = width, height = width)
-  cor_matrix <- corrplot(cor_matrix, order="hclust", tl.col = "black", tl.cex = fontSize, cl.cex = fontSize*1.5)
+  png(filename = paste("figures/withInSig/", name_png, ".png", sep = ""), width = width, height = width)
+  cor_matrix_plot <- corrplot(cor_matrix, order="hclust", tl.col = "black", 
+                         tl.cex = fontSize, cl.cex = fontSize*1.5)
   title(main=title, cex.main = titleSize)
   dev.off()
   
   #Getting sorted order from corrplot output
-  sorted_corr <- cor_matrix$corr
+  sorted_corr <- cor_matrix_plot$corr
   #Exporting sorted matrix as csv file
   sorted_corr <- as.data.frame(sorted_corr)
   write.csv(sorted_corr, file = paste("data/corrMatrices/", name_png, ".csv", sep = ""), row.names = TRUE)
   
+  #Creates corrplot figure without insig values
+  #sets insignificant values to 0
+  cor_matrix[abs(cor_matrix)<0.6] <- 0
+  #Opening a PNG device
+  png(filename = paste("figures/WOInSig/", name_png, ".png", sep = ""), width = width, height = width)
+  cor_matrix_plot2 <- corrplot(cor_matrix, order="hclust", tl.col = "black", 
+                         tl.cex = fontSize, cl.cex = fontSize*1.5, insig="blank")
+  title(main=title, cex.main = titleSize)
+  dev.off()
 }
+
 
 #Run for CBC Delta Y
 createMatrixPlot("data/CBCHistoricData/CBCMergedDeltaY.csv",
-                 "r_cbc_delta_y_corr_matrix","CBC Delta Y Correlation Matrix (1902/1977/1923-2024)", 
+                 "r_cbc_delta_y_corr_matrix","CBC Delta Y Correlation Matrix (1902/1977/1923-2024) By Effort Hour", 
                  3000, 2, 5)
 
 #Run for CBC non-Delta Y
 createMatrixPlot("data/CBCHistoricData/CBCMergedWide.csv",
-                 "r_cbc_corr_matrix","CBC Correlation Matrix (1902/1977/1923-2024)", 
+                 "r_cbc_corr_matrix","CBC Correlation Matrix (1902/1977/1923-2024) By Effort Hour", 
                  3000, 2, 5)
 
 #Run for mBBS Delta Y

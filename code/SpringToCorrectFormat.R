@@ -10,7 +10,7 @@ library(dplyr)
 library(readxl)
 
 #Chapel Hill
-fileName = "data/Spring/CHSBC-all-years.csv"
+fileName <- "data/Spring/CHSBC-all-years.csv"
 
 originalFile <- read.csv(fileName, check.names = FALSE)
 originalFile$sort <- NULL

@@ -1,17 +1,17 @@
 # Created 1/22/2026
-# Last updated: 1/22/2026 - Anneliese Pinnell
+# Last updated: 1/28/2026 - Anneliese Pinnell
 
 # The goal of this code is to convert the CBC data to the same 
 # format as mBBS
 # Needed columns: year, common_name, count, sci_name
 # Year is in CountYear first 4 char
 # common_name is before [] in COM_NAME
-# count is how_manyCW
+# REVISION 1-28-2026 - count is NumberByPartyHours
+# OLD: count is how_manyCW
 # sci name is within [] of COM_NAME
 
 library(tidyr)
 library(dplyr)
-
 
 makeSmallCSV <- function(fileName, outName, skipNum, removeNum){
   #Skips weather data
@@ -33,12 +33,14 @@ makeSmallCSV <- function(fileName, outName, skipNum, removeNum){
   #Sources year from CountYear
   runningCSV$year <- substr(runningCSV$CountYear, start = 1, stop = 4)
   
-  #Renames how_manyCW to count
-  runningCSV$count <- runningCSV$how_manyCW
+  #Renames NumberByPartyHours to count
+  runningCSV$NumberByPartyHours <- as.numeric(as.character(runningCSV$NumberByPartyHours))
+  runningCSV$count <- runningCSV$NumberByPartyHours
   
   #Only includes wanted columns
   finalCSV <- runningCSV %>% select(year, common_name, sci_name, count)
-  finalCSV$count <- as.integer(finalCSV$count)
+  finalCSV[finalCSV == ""] <- 0
+  finalCSV[is.na(finalCSV)] <- 0
   
   write.csv(finalCSV, outName, row.names = FALSE)
   

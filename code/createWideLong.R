@@ -75,7 +75,7 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, minimum){
 
 #CBC
 makeWideLong("data/CBCHistoricData/CBCMerged.csv", "data/CBCHistoricData/CBCMergedLong.csv",
-             "data/CBCHistoricData/CBCMergedWide.csv", "data/CBCHistoricData/CBCMergedDeltaY.csv", 15)
+             "data/CBCHistoricData/CBCMergedWide.csv", "data/CBCHistoricData/CBCMergedDeltaY.csv", 0.1)
 
 #mBBS
 makeWideLong("data/mbbs/mbbs_route_counts.csv", "data/mbbs/mbbsLong.csv",
