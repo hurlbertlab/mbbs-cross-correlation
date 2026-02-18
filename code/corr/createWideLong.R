@@ -107,5 +107,5 @@ makeWideLong("data/mbbs/mbbsMerged.csv", "data/mbbs/mbbsLong.csv",
 #Spring
 makeWideLong("data/Spring/SpringMerged.csv", "data/Spring/SpringLong.csv",
              "data/Spring/SpringWide.csv", "data/Spring/SpringDeltaYWide.csv", 
-              30)
+              0.2)
 

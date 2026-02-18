@@ -1,7 +1,10 @@
 # Created 11/20/2025
 # Last updated 11/28/2025 by Anneliese Pinnell
-  # Added pct change stuff, and seperate sig and insig
-  # 02/10/2026 Renamed output files for CBC
+# Added pct change stuff, and seperate sig and insig
+# 02/10/2026 Renamed output files for CBC
+# ~2/14/2026 Changed from heatmap --> pheatmap and sorted cor plot 
+# using correlation library
+# 2/18/2026 made script shorter by removing year column earlier
 
 #This file takes the wide form mbbs data and creates a correlation matrix.
 #Also exports sorted heatmap matrix to png and exports sorted matrix as csv.
@@ -10,24 +13,23 @@ library(ggplot2)
 library(corrplot)
 library(png)
 library(pheatmap)
+library(correlation)
 
 createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSize){
   wide_form_data = read.csv(fileName)
+  #Drop year column
+  wide_form_data <- wide_form_data[, -1]
   #Correlation matrix
   cor_matrix <- cor(wide_form_data, method = "spearman")
-  #cor_matrix <- cor(wide_form_data)
-  #Drop the year column (first column)
-  cor_matrix <- cor_matrix[, -1]
-  #Drop the year row (first row)
-  cor_matrix <- cor_matrix[-1, ]
   
   #Creates corrplot figure with insig values
   #Opening a PNG device
   png(filename = paste("figures/heatmap/", name_png, ".png", sep = ""), width = width, height = width)
-  pheatmap(cor_matrix, color = hcl.colors(50, "RdBu"))
+  pheatmap(cor_matrix, color = hcl.colors(50, "RdBu"), main = title,
+           breaks = seq(-1, 1, by = 0.04))
   dev.off()
   
-  sorted_corr <- cor_matrix_plot$corr
+  sorted_corr <- cor_sort(cor_matrix)
   #Exporting sorted matrix as csv file
   sorted_corr <- as.data.frame(sorted_corr)
   write.csv(sorted_corr, file = paste("data/corrMatrices/", name_png, ".csv", sep = ""), row.names = TRUE)
