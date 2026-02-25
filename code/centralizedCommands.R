@@ -12,9 +12,12 @@ source("code/corr/predictMissingMBBS.R")
 source("code/corr/combineMBBSAndPredicted.R")
 source("code/corr/createWideLong.R")
 source("code/corr/makeCorrMatrix.R")
+source("code/corr/pullResidents.R")
 
 #Gets relevant species from BirdBase and AvoNet
-source("code/spInterest.R")
+source("code/traits/spInterest.R")
+source("code/traits/manipulateTraits.R")
+source("code/selfGraphs.R")
 
 
 

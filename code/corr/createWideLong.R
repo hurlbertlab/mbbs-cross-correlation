@@ -2,6 +2,7 @@
 # Last updated 1/29/2025 by Anneliese Pinnell
   #Added CBC and Spring data
   #Removed Pct change
+  #Added delta y long export
 
 #Converts long data to wide form
 #Generates sums for each year for each species
@@ -9,7 +10,7 @@
 library(dplyr)
 library(tidyr)
 
-makeWideLong <- function(fileName, longName, wideName, deltaYName, minimum){
+makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, minimum){
   #Read in data
   bird_info = read.csv(fileName)
   
@@ -83,6 +84,8 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, minimum){
   delta_y_change$previous_count <- NULL
   delta_y_change$count <- NULL
   
+  #CHANGES MADE HERE
+  write.csv(delta_y_change, deltaYLong, row.names = FALSE)
   
   #Pivots data to wide form
   df_pivot <- delta_y_change %>%
@@ -97,15 +100,18 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, minimum){
 
 #CBC
 makeWideLong("data/CBCHistoricData/CBCMerged.csv", "data/CBCHistoricData/CBCMergedLong.csv",
-             "data/CBCHistoricData/CBCMergedWide.csv", "data/CBCHistoricData/CBCMergedDeltaY.csv", 0.2)
+             "data/CBCHistoricData/CBCMergedWide.csv", "data/CBCHistoricData/CBCMergedDeltaY.csv",
+             "data/CBCHistoricData/CSBSDeltaYLong.csv", 0.2)
 
 #mBBS
 makeWideLong("data/mbbs/mbbsMerged.csv", "data/mbbs/mbbsLong.csv",
              "data/mbbs/mbbsWide.csv", "data/mbbs/mbbsDeltaYWide.csv", 
+             "data/mbbs/mbbsDeltaYLong.csv",
               1)
 
 #Spring
 makeWideLong("data/Spring/SpringMerged.csv", "data/Spring/SpringLong.csv",
-             "data/Spring/SpringWide.csv", "data/Spring/SpringDeltaYWide.csv", 
+             "data/Spring/SpringWide.csv", "data/Spring/SpringDeltaYWide.csv",
+             "data/Spring/SpringDeltaYLong.csv",
               0.2)
 

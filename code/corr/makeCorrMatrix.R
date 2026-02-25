@@ -68,4 +68,14 @@ createMatrixPlot("data/Spring/SpringDeltaYWide.csv",
                  "spring_delta_y_corr_matrix","Spring Delta Y Correlation Matrix (1999-2025)", 
                  900, 2, 5)
 
+#Run for residents delta Y
+createMatrixPlot("data/residents/deltaYChangeWide.csv",
+                 "residents_delta_y_corr_matrix","Residents Seasonal Difference Delta Y Correlation Matrix (1999-2025)", 
+                 600, 2, 5)
+
+#Run for residents
+createMatrixPlot("data/residents/residentSpeciesWide.csv",
+                 "residents_corr_matrix","Residents Seasonal Change Correlation Matrix (1999-2025)", 
+                 600, 2, 5)
+
 

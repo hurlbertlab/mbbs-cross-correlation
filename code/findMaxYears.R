@@ -28,6 +28,7 @@ for (colName in names(deltaY)[-1]){
                       minNum = spMin)
   maxDF <- rbind(maxDF, addDF)
 }
+
 png(filename = paste("figures/histogram/", "mbbsMaxYears", ".png", sep = ""), 
     width = 1000, height = 500)
 hist(maxDF$maxYear, breaks = (2025-1999), main = "Maximum Year Frequency mBBS ΔY (1999-2025)", labels=TRUE)
