@@ -1,5 +1,4 @@
 "common_name","year","yoy_change"
-"American Crow",1999,0
 "American Crow",2000,16
 "American Crow",2001,74
 "American Crow",2002,-97
@@ -26,7 +25,6 @@
 "American Crow",2023,-2
 "American Crow",2024,-18
 "American Crow",2025,-22
-"American Goldfinch",1999,0
 "American Goldfinch",2000,-32
 "American Goldfinch",2001,23
 "American Goldfinch",2002,87
@@ -53,7 +51,6 @@
 "American Goldfinch",2023,-3
 "American Goldfinch",2024,27
 "American Goldfinch",2025,-17
-"American Robin",1999,0
 "American Robin",2000,-14
 "American Robin",2001,4
 "American Robin",2002,18
@@ -80,7 +77,6 @@
 "American Robin",2023,-29
 "American Robin",2024,35
 "American Robin",2025,-23
-"Barn Swallow",1999,0
 "Barn Swallow",2000,1
 "Barn Swallow",2001,9
 "Barn Swallow",2002,-5
@@ -107,7 +103,6 @@
 "Barn Swallow",2023,-57
 "Barn Swallow",2024,39
 "Barn Swallow",2025,-9
-"Blue Grosbeak",1999,0
 "Blue Grosbeak",2000,10
 "Blue Grosbeak",2001,-11
 "Blue Grosbeak",2002,-15
@@ -134,7 +129,6 @@
 "Blue Grosbeak",2023,-15
 "Blue Grosbeak",2024,39
 "Blue Grosbeak",2025,-13
-"Blue Jay",1999,0
 "Blue Jay",2000,-25
 "Blue Jay",2001,56
 "Blue Jay",2002,-14
@@ -161,7 +155,6 @@
 "Blue Jay",2023,-21
 "Blue Jay",2024,14
 "Blue Jay",2025,-9
-"Blue-gray Gnatcatcher",1999,0
 "Blue-gray Gnatcatcher",2000,-7
 "Blue-gray Gnatcatcher",2001,9
 "Blue-gray Gnatcatcher",2002,-70
@@ -188,7 +181,6 @@
 "Blue-gray Gnatcatcher",2023,-16
 "Blue-gray Gnatcatcher",2024,37
 "Blue-gray Gnatcatcher",2025,40
-"Brown Thrasher",1999,0
 "Brown Thrasher",2000,12
 "Brown Thrasher",2001,-20
 "Brown Thrasher",2002,17
@@ -215,7 +207,6 @@
 "Brown Thrasher",2023,-24
 "Brown Thrasher",2024,13
 "Brown Thrasher",2025,2
-"Brown-headed Cowbird",1999,0
 "Brown-headed Cowbird",2000,-10
 "Brown-headed Cowbird",2001,27
 "Brown-headed Cowbird",2002,6
@@ -242,7 +233,6 @@
 "Brown-headed Cowbird",2023,-12
 "Brown-headed Cowbird",2024,-11
 "Brown-headed Cowbird",2025,18
-"Brown-headed Nuthatch",1999,0
 "Brown-headed Nuthatch",2000,-1
 "Brown-headed Nuthatch",2001,18
 "Brown-headed Nuthatch",2002,10
@@ -269,7 +259,6 @@
 "Brown-headed Nuthatch",2023,-1
 "Brown-headed Nuthatch",2024,1
 "Brown-headed Nuthatch",2025,26
-"Carolina Chickadee",1999,0
 "Carolina Chickadee",2000,-17
 "Carolina Chickadee",2001,10
 "Carolina Chickadee",2002,-12
@@ -296,7 +285,6 @@
 "Carolina Chickadee",2023,-17
 "Carolina Chickadee",2024,-28
 "Carolina Chickadee",2025,91
-"Carolina Wren",1999,0
 "Carolina Wren",2000,-137
 "Carolina Wren",2001,97
 "Carolina Wren",2002,-42
@@ -323,7 +311,6 @@
 "Carolina Wren",2023,-49
 "Carolina Wren",2024,52
 "Carolina Wren",2025,-35
-"Chimney Swift",1999,0
 "Chimney Swift",2000,-19
 "Chimney Swift",2001,18
 "Chimney Swift",2002,71
@@ -350,7 +337,6 @@
 "Chimney Swift",2023,-9
 "Chimney Swift",2024,1
 "Chimney Swift",2025,13
-"Chipping Sparrow",1999,0
 "Chipping Sparrow",2000,-42
 "Chipping Sparrow",2001,59
 "Chipping Sparrow",2002,-7
@@ -377,7 +363,6 @@
 "Chipping Sparrow",2023,34
 "Chipping Sparrow",2024,-71
 "Chipping Sparrow",2025,127
-"Common Grackle",1999,0
 "Common Grackle",2000,-152
 "Common Grackle",2001,-13
 "Common Grackle",2002,50
@@ -404,7 +389,6 @@
 "Common Grackle",2023,-19
 "Common Grackle",2024,24
 "Common Grackle",2025,75
-"Common Yellowthroat",1999,0
 "Common Yellowthroat",2000,-20
 "Common Yellowthroat",2001,7
 "Common Yellowthroat",2002,18
@@ -431,7 +415,6 @@
 "Common Yellowthroat",2023,7
 "Common Yellowthroat",2024,-3
 "Common Yellowthroat",2025,0
-"Downy Woodpecker",1999,0
 "Downy Woodpecker",2000,11
 "Downy Woodpecker",2001,0
 "Downy Woodpecker",2002,-16
@@ -458,7 +441,6 @@
 "Downy Woodpecker",2023,5
 "Downy Woodpecker",2024,29
 "Downy Woodpecker",2025,-17
-"Eastern Bluebird",1999,0
 "Eastern Bluebird",2000,8
 "Eastern Bluebird",2001,28
 "Eastern Bluebird",2002,-40
@@ -485,7 +467,6 @@
 "Eastern Bluebird",2023,-11
 "Eastern Bluebird",2024,-2
 "Eastern Bluebird",2025,-88
-"Eastern Meadowlark",1999,0
 "Eastern Meadowlark",2000,-59
 "Eastern Meadowlark",2001,29
 "Eastern Meadowlark",2002,-36
@@ -512,7 +493,6 @@
 "Eastern Meadowlark",2023,4
 "Eastern Meadowlark",2024,8
 "Eastern Meadowlark",2025,-23
-"Eastern Phoebe",1999,0
 "Eastern Phoebe",2000,-30
 "Eastern Phoebe",2001,15
 "Eastern Phoebe",2002,-8
@@ -539,7 +519,6 @@
 "Eastern Phoebe",2023,13
 "Eastern Phoebe",2024,14
 "Eastern Phoebe",2025,-14
-"Eastern Towhee",1999,0
 "Eastern Towhee",2000,-42
 "Eastern Towhee",2001,13
 "Eastern Towhee",2002,36
@@ -566,7 +545,6 @@
 "Eastern Towhee",2023,-12
 "Eastern Towhee",2024,-12
 "Eastern Towhee",2025,4
-"Eastern Wood-Pewee",1999,0
 "Eastern Wood-Pewee",2000,-5
 "Eastern Wood-Pewee",2001,6
 "Eastern Wood-Pewee",2002,2
@@ -593,7 +571,6 @@
 "Eastern Wood-Pewee",2023,-8
 "Eastern Wood-Pewee",2024,21
 "Eastern Wood-Pewee",2025,16
-"European Starling",1999,0
 "European Starling",2000,-13
 "European Starling",2001,-36
 "European Starling",2002,19
@@ -620,7 +597,6 @@
 "European Starling",2023,-30
 "European Starling",2024,-53
 "European Starling",2025,34
-"Fish Crow",1999,0
 "Fish Crow",2000,1
 "Fish Crow",2001,0
 "Fish Crow",2002,-12
@@ -647,7 +623,6 @@
 "Fish Crow",2023,-1
 "Fish Crow",2024,28
 "Fish Crow",2025,2
-"Great Crested Flycatcher",1999,0
 "Great Crested Flycatcher",2000,-12
 "Great Crested Flycatcher",2001,20
 "Great Crested Flycatcher",2002,-17
@@ -674,7 +649,6 @@
 "Great Crested Flycatcher",2023,12
 "Great Crested Flycatcher",2024,-31
 "Great Crested Flycatcher",2025,27
-"House Finch",1999,0
 "House Finch",2000,-23
 "House Finch",2001,9
 "House Finch",2002,32
@@ -701,7 +675,6 @@
 "House Finch",2023,33
 "House Finch",2024,-9
 "House Finch",2025,36
-"Indigo Bunting",1999,0
 "Indigo Bunting",2000,-44
 "Indigo Bunting",2001,38
 "Indigo Bunting",2002,-31
@@ -728,7 +701,6 @@
 "Indigo Bunting",2023,-5
 "Indigo Bunting",2024,-13
 "Indigo Bunting",2025,-10
-"Mourning Dove",1999,0
 "Mourning Dove",2000,-28
 "Mourning Dove",2001,-17
 "Mourning Dove",2002,54
@@ -755,7 +727,6 @@
 "Mourning Dove",2023,-3
 "Mourning Dove",2024,40
 "Mourning Dove",2025,-45
-"Northern Cardinal",1999,0
 "Northern Cardinal",2000,-65
 "Northern Cardinal",2001,39
 "Northern Cardinal",2002,-4
@@ -782,7 +753,6 @@
 "Northern Cardinal",2023,-95
 "Northern Cardinal",2024,47
 "Northern Cardinal",2025,-13
-"Northern Mockingbird",1999,0
 "Northern Mockingbird",2000,-39
 "Northern Mockingbird",2001,21
 "Northern Mockingbird",2002,84
@@ -809,7 +779,6 @@
 "Northern Mockingbird",2023,-39
 "Northern Mockingbird",2024,41
 "Northern Mockingbird",2025,-5
-"Ovenbird",1999,0
 "Ovenbird",2000,-18
 "Ovenbird",2001,34
 "Ovenbird",2002,-5
@@ -836,7 +805,6 @@
 "Ovenbird",2023,-13
 "Ovenbird",2024,3
 "Ovenbird",2025,28
-"Pine Warbler",1999,0
 "Pine Warbler",2000,-22
 "Pine Warbler",2001,15
 "Pine Warbler",2002,17
@@ -863,7 +831,6 @@
 "Pine Warbler",2023,-27
 "Pine Warbler",2024,10
 "Pine Warbler",2025,2
-"Purple Martin",1999,0
 "Purple Martin",2000,-20
 "Purple Martin",2001,17
 "Purple Martin",2002,-13
@@ -890,7 +857,6 @@
 "Purple Martin",2023,-26
 "Purple Martin",2024,0
 "Purple Martin",2025,8
-"Red-bellied Woodpecker",1999,0
 "Red-bellied Woodpecker",2000,-38
 "Red-bellied Woodpecker",2001,15
 "Red-bellied Woodpecker",2002,51
@@ -917,7 +883,6 @@
 "Red-bellied Woodpecker",2023,-25
 "Red-bellied Woodpecker",2024,9
 "Red-bellied Woodpecker",2025,60
-"Red-eyed Vireo",1999,0
 "Red-eyed Vireo",2000,20
 "Red-eyed Vireo",2001,-6
 "Red-eyed Vireo",2002,-19
@@ -944,7 +909,6 @@
 "Red-eyed Vireo",2023,-13
 "Red-eyed Vireo",2024,14
 "Red-eyed Vireo",2025,3
-"Red-winged Blackbird",1999,0
 "Red-winged Blackbird",2000,-29
 "Red-winged Blackbird",2001,1
 "Red-winged Blackbird",2002,20
@@ -971,7 +935,6 @@
 "Red-winged Blackbird",2023,41
 "Red-winged Blackbird",2024,-29
 "Red-winged Blackbird",2025,-18
-"Summer Tanager",1999,0
 "Summer Tanager",2000,7
 "Summer Tanager",2001,0
 "Summer Tanager",2002,12
@@ -998,7 +961,6 @@
 "Summer Tanager",2023,-43
 "Summer Tanager",2024,12
 "Summer Tanager",2025,24
-"Tufted Titmouse",1999,0
 "Tufted Titmouse",2000,19
 "Tufted Titmouse",2001,13
 "Tufted Titmouse",2002,-4
@@ -1025,7 +987,6 @@
 "Tufted Titmouse",2023,-3
 "Tufted Titmouse",2024,61
 "Tufted Titmouse",2025,59
-"White-breasted Nuthatch",1999,0
 "White-breasted Nuthatch",2000,12
 "White-breasted Nuthatch",2001,-10
 "White-breasted Nuthatch",2002,-2
@@ -1052,7 +1013,6 @@
 "White-breasted Nuthatch",2023,-5
 "White-breasted Nuthatch",2024,20
 "White-breasted Nuthatch",2025,-11
-"White-eyed Vireo",1999,0
 "White-eyed Vireo",2000,1
 "White-eyed Vireo",2001,5
 "White-eyed Vireo",2002,3
@@ -1079,7 +1039,6 @@
 "White-eyed Vireo",2023,-5
 "White-eyed Vireo",2024,11
 "White-eyed Vireo",2025,12
-"Wood Thrush",1999,0
 "Wood Thrush",2000,20
 "Wood Thrush",2001,4
 "Wood Thrush",2002,-40
@@ -1106,7 +1065,6 @@
 "Wood Thrush",2023,-6
 "Wood Thrush",2024,23
 "Wood Thrush",2025,-11
-"Yellow-billed Cuckoo",1999,0
 "Yellow-billed Cuckoo",2000,5
 "Yellow-billed Cuckoo",2001,-15
 "Yellow-billed Cuckoo",2002,-8
@@ -1133,7 +1091,6 @@
 "Yellow-billed Cuckoo",2023,-24
 "Yellow-billed Cuckoo",2024,65
 "Yellow-billed Cuckoo",2025,-37
-"Yellow-breasted Chat",1999,0
 "Yellow-breasted Chat",2000,-9
 "Yellow-breasted Chat",2001,25
 "Yellow-breasted Chat",2002,-30

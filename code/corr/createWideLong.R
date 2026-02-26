@@ -3,6 +3,7 @@
   #Added CBC and Spring data
   #Removed Pct change
   #Added delta y long export
+  #Added filtering to just difference post 1999
 
 #Converts long data to wide form
 #Generates sums for each year for each species
@@ -54,8 +55,8 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
   #To csv file
   write.csv(df_pivot, wideName, row.names = FALSE)
   
-  #read in long_form data
-  long_form <- read.csv(longName)
+  #long_form data
+  long_form <- individual_species
   
   #Nests data for common_name
   nestForDY <- long_form |>
@@ -65,15 +66,11 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
     group_by(common_name) |>
     nest()
   
-  #Calculates delta Y through nests 
+  #Calculates delta y
   nestForDY$data <- map(nestForDY$data, ~ {
-    .x %>%
-      mutate(
-        count = as.numeric(count),
-        previous_count = lag(count),
-        yoy_change = count - previous_count
-      ) |>
-      replace_na(list(yoy_change = 0))
+    diffVec <- c(0, diff(.x$count))
+    .x |>
+      mutate(yoy_change = diffVec)
   })
   
   #unnests data
@@ -84,7 +81,9 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
   delta_y_change$previous_count <- NULL
   delta_y_change$count <- NULL
   
-  #CHANGES MADE HERE
+  delta_y_change <- delta_y_change |>
+    filter(year != 1999)
+  
   write.csv(delta_y_change, deltaYLong, row.names = FALSE)
   
   #Pivots data to wide form

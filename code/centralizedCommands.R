@@ -17,7 +17,7 @@ source("code/corr/pullResidents.R")
 #Gets relevant species from BirdBase and AvoNet
 source("code/traits/spInterest.R")
 source("code/traits/manipulateTraits.R")
-source("code/selfGraphs.R")
+source("code/traits/selfGraphs.R")
 
 
 

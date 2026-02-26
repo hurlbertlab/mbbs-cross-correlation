@@ -7,13 +7,13 @@ library(ggplot2)
 library(dplyr)
 library(ggeffects)
 library(sjPlot)
+library(gt)
 
 #Read in data
 spring <- read.csv("data/traits/springTraitsAndCorr.csv")
 mbbs <- read.csv("data/traits/mbbsTraitsAndCorr.csv")
 cbc <- read.csv("data/traits/CBCTraitsAndCorr.csv")
 resident <- read.csv("data/traits/ResidentTraitsAndCorr.csv")
-
 
 # Remove 1s from corr plots
 springNo1s <- spring |>
@@ -41,7 +41,7 @@ p2 <- ggplot(mbbsNo1s, aes(x=corr)) +
   geom_histogram(aes(y=after_stat(density)), colour="black", fill="white",
                  binwidth = .05) +
   labs(x="Correlation Value",
-       y = "Density",
+       y = "",
        title = "mBBS") +
   geom_density(alpha=.2, fill="#FF6666") +
   scale_x_continuous(breaks = seq(-1, 1, 0.1))
@@ -59,7 +59,7 @@ p4 <- ggplot(residentNo1s, aes(x=corr)) +
   geom_histogram(aes(y=after_stat(density)), colour="black", fill="white",
                  binwidth = .05) +
   labs(x="Correlation Value",
-       y = "Density",
+       y = "",
        title = "Resident (Spring-CBC)") +
   geom_density(alpha=.2, fill="#FF6666") +
   scale_x_continuous(breaks = seq(-1, 1, 0.1))
@@ -123,7 +123,7 @@ p1 <- ggplot(springRandFor, aes(x = reorder(var, mean), y = mean)) +
 p2 <- ggplot(mbbsRandFor, aes(x = reorder(var, mean), y = mean)) +
   geom_bar(stat = "identity") +
   coord_flip() +
-  labs(title = "mBBS", x = "Variables", y = "Importance") +
+  labs(title = "mBBS", x = "", y = "Importance") +
   theme_minimal()
 p3 <- ggplot(cbcRandFor, aes(x = reorder(var, mean), y = mean)) +
   geom_bar(stat = "identity") +
@@ -133,7 +133,7 @@ p3 <- ggplot(cbcRandFor, aes(x = reorder(var, mean), y = mean)) +
 p4 <- ggplot(residentRandFor, aes(x = reorder(var, mean), y = mean)) +
   geom_bar(stat = "identity") +
   coord_flip() +
-  labs(title = "Residents", x = "Variables", y = "Importance") +
+  labs(title = "Residents (Spring-CBC)", x = "", y = "Importance") +
   theme_minimal()
 
 
@@ -168,14 +168,17 @@ mtext(formula, side=3, line=-2.4, outer=TRUE, cex=1)
 par(mfrow = c(1,1))
 dev.off()
 
-plot_model(glm_model, vline.color = "red")
-plot_model(glm_model, show.values = TRUE, value.offset = .3) + labs(title = "GLM Coefficient Plot for Correlation Values")
+png(filename = paste("figures/genGraphs/mbbsGLMCoefficientPlot.png", sep = ""), 
+    width = 500, height = 350)
+plot_model(glm_model, show.values = TRUE, value.offset = .3,
+           axis.labels = c("Difference in Mass", "Equivilency of Migration Pattern", "Equivilancy of Trophic Level", "Difference in Maximum Clutch Size")) + labs(title = "GLM Coefficient Plot for Correlation Values")
+dev.off()
 
+p1 <- plot_model(glm_model, type = "pred", terms = interest[1], title = "") + labs(x = "Difference in Mass", y = "Correlation")
+p2 <- plot_model(glm_model, type = "pred", terms = interest[2], title = "") + labs(x = "Equivilency of Migration Pattern", y = "")
+p3 <- plot_model(glm_model, type = "pred", terms = interest[3], title = "")+ labs(x = "Equivilancy of Trophic Level", y = "Correlation")
+p4 <- plot_model(glm_model, type = "pred", terms = interest[4], title = "")+ labs(x = "Difference in Maximum Clutch Size", y = "")
 
-p1 <- plot_model(glm_model, type = "pred", terms = interest[1], title = "")
-p2 <- plot_model(glm_model, type = "pred", terms = interest[2], title = "")
-p3 <- plot_model(glm_model, type = "pred", terms = interest[3], title = "")
-p4 <- plot_model(glm_model, type = "pred", terms = interest[4], title = "")
 
 combined <- (p1+p2)/(p3+p4)
 newCombined <- combined + 
@@ -184,4 +187,48 @@ newCombined <- combined +
     subtitle = '1999 - 2025',
   )
 newCombined
+png(filename = paste("figures/genGraphs/mbbsPredictedCorrValues.png", sep = ""), 
+    width = 600, height = 500)
+newCombined
+dev.off()
+
+# Display extreme high values and extreme lows for each correlation matrix
+
+getMaxMin <- function(fileName, surveyName){
+  maxMbbs <- fileName |> 
+    filter(corr != 1) |>
+    filter(corr == max(corr)) |>
+    select(c("sp1", "sp2", "corr")) |>
+    mutate("Survey" = surveyName)
+  
+  minMbbs <- fileName |>
+    filter(corr == min(corr)) |>
+    select(c("sp1", "sp2", "corr")) |>
+    mutate("Survey" = surveyName)
+
+  joined <- rbind(maxMbbs, minMbbs)
+  return(joined)
+}
+
+allJoined <- rbind(getMaxMin(spring, "Spring"), getMaxMin(mbbs, "mBBS"),
+                   getMaxMin(cbc, "CBC"), getMaxMin(resident, "Residents"))
+
+
+allJoined <- allJoined |>
+  rename("Species A" = sp1, "Species B" = sp2, 
+         "Correlation" = corr)|>
+  gt() |> 
+  tab_header(
+    title = "Minimum and Maximum Correlation Values",
+    subtitle = "1999-2025"
+  ) |>
+  fmt_number(
+    columns = everything(),
+    decimals = 4
+  )
+
+allJoined
+
+
+
 
