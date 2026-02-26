@@ -16,9 +16,9 @@ library(pheatmap)
 library(correlation)
 
 createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSize){
-  wide_form_data = read.csv(fileName)
-  #Drop year column
-  wide_form_data <- wide_form_data[, -1]
+  wide_form_data = read.csv(fileName) |>
+    mutate(year = NULL) #gets rid of year column if it exists, and if it doesn't exist does nothing
+
   #Correlation matrix
   cor_matrix <- cor(wide_form_data, method = "spearman")
   
@@ -32,6 +32,17 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
   sorted_corr <- cor_sort(cor_matrix)
   #Exporting sorted matrix as csv file
   sorted_corr <- as.data.frame(sorted_corr)
+  
+  sorting_columns <- c("sp1", "sp2")
+  
+  readable_corr <- sorted_corr |>
+    mutate(sp2 = rownames(sorted_corr)) |>
+    pivot_longer(col = 0:(ncol(sorted_corr)),
+                 names_to = "sp1", values_to = "cor") |>
+    #remove duplicates
+    filter(!(sp1 == sp2)) |>
+    mutate(unique_combos = paste(sp1, sp2))
+  
   write.csv(sorted_corr, file = paste("data/corrMatrices/", name_png, ".csv", sep = ""), row.names = TRUE)
   
 }
