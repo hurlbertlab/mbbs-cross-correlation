@@ -38,8 +38,9 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
   readable_corr <- sorted_corr |>
     mutate(sp2 = rownames(sorted_corr)) |>
     pivot_longer(col = 0:(ncol(sorted_corr)),
-                 names_to = "sp1", values_to = "cor")
+                 names_to = "sp1", values_to = "cor") |>
     #remove duplicates
+    filter(!(sp1 == sp2))
     
   readable_corr <- readable_corr[!duplicated(apply(readable_corr[,1:2], 1, function(row) paste(sort(row), collapse=""))),]
   
