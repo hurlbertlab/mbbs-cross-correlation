@@ -10,6 +10,7 @@
 
 library(dplyr)
 library(tidyr)
+library(stringr)
 
 makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, minimum){
   #Read in data
@@ -24,6 +25,8 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
     filter(year >= 1999)
   
   ##Removes low number birds based off of means
+  #MBBS data has already been filtered to species that meet a minimum bound when we made the dataset, so just filter out unreliable species for CBC and Spring
+  if (!str_detect(fileName, "bbs")) { 
   #Calculates means
   bird_means <- bird_info %>%
     group_by(common_name) %>%
@@ -39,6 +42,10 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
   only_kept_birds <- bird_info %>%
     filter(common_name %in% birds_to_keep) %>%
     slice(1:n())  #resets index
+  } else {
+    #data is bbs
+    only_kept_birds <- bird_info
+  }
   
   #Sums species to have a count for each year
   individual_species <- only_kept_birds %>%
@@ -98,15 +105,20 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
 #Data file name, long name, wide name, delta y name
 
 #CBC
-makeWideLong("data/CBCHistoricData/CBCMerged.csv", "data/CBCHistoricData/CBCMergedLong.csv",
-             "data/CBCHistoricData/CBCMergedWide.csv", "data/CBCHistoricData/CBCMergedDeltaY.csv",
-             "data/CBCHistoricData/CSBSDeltaYLong.csv", 0.2)
+makeWideLong(fileName = "data/CBCHistoricData/CBCMerged.csv",
+             longName = "data/CBCHistoricData/CBCMergedLong.csv",
+             wideName = "data/CBCHistoricData/CBCMergedWide.csv", 
+             deltaYName = "data/CBCHistoricData/CBCMergedDeltaY.csv",
+             deltaYLong = "data/CBCHistoricData/CSBSDeltaYLong.csv", 
+             minimum = 0.2)
 
 #mBBS
-makeWideLong("data/mbbs/mbbsMerged.csv", "data/mbbs/mbbsLong.csv",
-             "data/mbbs/mbbsWide.csv", "data/mbbs/mbbsDeltaYWide.csv", 
-             "data/mbbs/mbbsDeltaYLong.csv",
-              1)
+makeWideLong(fileName = "data/mbbs/mbbsMerged.csv", 
+             longName = "data/mbbs/mbbsLong.csv",
+             wideName = "data/mbbs/mbbsWide.csv", 
+             deltaYName = "data/mbbs/mbbsDeltaYWide.csv", 
+             deltaYLong = "data/mbbs/mbbsDeltaYLong.csv",
+             minimum = 1)
 
 #Spring
 makeWideLong("data/Spring/SpringMerged.csv", "data/Spring/SpringLong.csv",
