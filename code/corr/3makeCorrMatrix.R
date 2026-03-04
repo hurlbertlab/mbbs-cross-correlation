@@ -14,6 +14,7 @@ library(corrplot)
 library(png)
 library(pheatmap)
 library(correlation)
+library(tidyverse)
 
 createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSize){
   wide_form_data = read.csv(fileName) |>
@@ -21,7 +22,6 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
 
   #Correlation matrix
   cor_matrix <- cor(wide_form_data, method = "spearman")
-  
   #Creates corrplot figure with insig values
   #Opening a PNG device
   png(filename = paste("figures/heatmap/", name_png, ".png", sep = ""), width = width, height = width)

@@ -1,0 +1,165 @@
+---
+title: "2selfGraphs"
+author: "Anneliese Pinnell"
+date: "03/04/2026"
+---
+
+# Load Libraries
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(patchwork)
+library(randomForest)
+library(ggplot2)
+library(dplyr)
+library(ggeffects)
+library(sjPlot)
+library(gt)
+library(DHARMa)
+library(gtsummary)
+library(beepr)
+```
+
+```{r setup}
+knitr::opts_knit$set(root.dir = "/Users/anneliesepinnell/UNC Current/HurlbertLab/mbbs-cross-correlation/")
+```
+
+# Read in data
+```{r}
+spring <- read.csv("data/traits/springTraitsAndCorr.csv") |> 
+  filter(corr !=1)
+mbbs <- read.csv("data/traits/mbbsTraitsAndCorr.csv")|> 
+  filter(corr !=1)
+cbc <- read.csv("data/traits/CBCTraitsAndCorr.csv")|> 
+  filter(corr !=1)
+resident <- read.csv("data/traits/ResidentTraitsAndCorr.csv")|> 
+  filter(corr !=1)
+
+springMatrix <- read.csv("data/corrMatrices/subsets/SpringSubset.csv")
+mbbsMatrix <- read.csv("data/corrMatrices/subsets/mBBSSubset.csv")
+cbcMatrix <- read.csv("data/corrMatrices/subsets/CBCSubset.csv")
+
+cbcHeat <- read.csv("data/CBCHistoricData/CBCMERGEDDeltaY.csv") |> select(-year)
+springHeat <- read.csv("data/Spring/SpringDeltaYWide.csv")|> select(-year)
+mbbsHeat <- read.csv("data/mbbs/mbbsDeltaYWide.csv")|> select(-year)
+
+listOfData <- list(spring, mbbs, cbc, resident)
+listOfMatrices <- list(springMatrix, mbbsMatrix, cbcMatrix)
+listOfHeat <- list(springHeat, mbbsHeat, mbbsHeat)
+seasons <- c("Spring", "mBBS", "Christmas Bird Count", "Residents")
+```
+
+
+
+# Density of correlation values by survey
+```{r}
+listOfFigures <- list()
+for(i in seq_along(listOfData)){
+  figure <- ggplot(listOfData[[i]], aes(x=corr)) + 
+  geom_histogram(aes(y=after_stat(density)), colour="black", fill="white",
+                 binwidth = .05) +
+  labs(x="Correlation Value",
+       y = "Density",
+       title = seasons[i]) +
+  geom_density(alpha=.2, fill="#FF6666") +
+  scale_x_continuous(breaks = seq(-1, 1, 0.1))
+  
+  listOfFigures[[i]] <- figure
+}
+
+combined <- listOfFigures[[1]] + listOfFigures[[2]] + listOfFigures[[3]]+
+  listOfFigures[[4]]
+histPlot <- combined + 
+  plot_annotation(
+    title = 'Yearly Abundance Change Correlation Values Distribution by Survey',
+    subtitle = '1999 - 2025',
+  )
+
+png(filename = paste("figures/genGraphs/densityPlotCorrValues.png", sep = ""), 
+    width = 1000, height = 400)
+histPlot
+dev.off()
+```
+
+
+# Density of correlation values by survey subset
+```{r}
+listOfFigures <- list()
+for(i in seq_along(listOfMatrices)){
+  figure <- ggplot(listOfMatrices[[i]], aes(x=corr)) + 
+  geom_histogram(aes(y=after_stat(density)), colour="black", fill="white",
+                 binwidth = .05) +
+  labs(x="Correlation Value",
+       y = "Density",
+       title = seasons[i]) +
+  geom_density(alpha=.2, fill="#FF6666") +
+  scale_x_continuous(breaks = seq(-1, 1, 0.1))
+  
+  listOfFigures[[i]] <- figure
+}
+
+combined <- listOfFigures[[1]]/ listOfFigures[[2]]/ listOfFigures[[3]]
+histPlot <- combined + 
+  plot_annotation(
+    title = 'Yearly Abundance Change Correlation Values Distribution by Survey - Subset',
+    subtitle = '1999 - 2025',
+  )
+
+png(filename = paste("figures/genGraphs/subsets/densitySubsetCorrValues.png", sep = ""), 
+    width = 600, height = 500)
+histPlot
+dev.off()
+```
+
+# Subsets pheatmap
+```{r}
+
+intersections <- intersect(names(springHeat), intersect(names(cbcHeat), names(mbbsHeat)))
+
+cbcHeat <- cbcHeat |> select(any_of(intersections))
+springheat <- springHeat |> select(any_of(intersections))
+mbbsHeat <- mbbsHeat |> select(any_of(intersections))
+
+
+#COME BACK HERE
+#Gets row/col order based on mbbs
+cor_matrixMbbs <- cor(mbbs, method = "spearman")
+temp1 <- pheatmap(cor_matrixMbbs, color = hcl.colors(50, "RdBu"), main = "mBBS",
+                  breaks = seq(-1, 1, by = 0.04))
+rowOrder <- temp1$tree_row$order
+colOrder <- temp1$tree_col$order
+
+createCorrMatrixSubset <- function(survey, heatmapName, sizeWH, title){
+  corMatrix <- cor(survey, method = "spearman")
+  #Creates visual of heatmap
+  png(filename = paste("figures/heatmap/subsets/", heatmapName, ".png", sep = ""), width = sizeWH, height = sizeWH)
+  pheatmap(corMatrix[rowOrder, colOrder], cluster_rows = FALSE, cluster_cols = FALSE,
+           color = hcl.colors(50, "RdBu"), 
+           main = title,
+           breaks = seq(-1, 1, by = 0.04))
+  dev.off()
+  
+  sorting_columns <- c("sp1", "sp2")
+  
+  corMatrix <- as.data.frame(corMatrix)
+  readable_corr <- corMatrix |>
+    mutate(sp2 = rownames(corMatrix)) |>
+    pivot_longer(col = 0:(ncol(corMatrix)),
+                 names_to = "sp1", values_to = "corr") |>
+    #remove duplicates
+    filter(!(sp1 == sp2))
+  
+  readable_corr <- readable_corr[!duplicated(apply(readable_corr[,1:2], 1, function(row) paste(sort(row), collapse=""))),]
+  
+  write.csv(readable_corr, file = paste("data/corrMatrices/subsets/", heatmapName, ".csv", sep = ""), row.names = TRUE)
+  #return(c(as.matrix(corMatrix), readable_corr))
+  return(readable_corr)
+}
+
+cbcMatrix <- createCorrMatrixSubset(cbc, "CBCSubset", 600, "CBC - Subset Yearly Abundance Change Matrix")
+mbbsMatrix <- createCorrMatrixSubset(mbbs, "mBBSSubset", 600, "mBBS - Subset Yearly Abundance Change Matrix")
+springMatrix <- createCorrMatrixSubset(spring, "SpringSubset", 600, "Spring - Subset to mBBS Yearly Abundance Change Matrix")
+
+
+```
+# Random Forest Models

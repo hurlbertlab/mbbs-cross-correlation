@@ -1,4 +1,31 @@
 "common_name","year","count"
+"Acadian Flycatcher",1999,11
+"Acadian Flycatcher",2000,16
+"Acadian Flycatcher",2001,25
+"Acadian Flycatcher",2002,22
+"Acadian Flycatcher",2003,17
+"Acadian Flycatcher",2004,20
+"Acadian Flycatcher",2005,28
+"Acadian Flycatcher",2006,16
+"Acadian Flycatcher",2007,22
+"Acadian Flycatcher",2008,27
+"Acadian Flycatcher",2009,16
+"Acadian Flycatcher",2010,23
+"Acadian Flycatcher",2011,23
+"Acadian Flycatcher",2012,28
+"Acadian Flycatcher",2013,21
+"Acadian Flycatcher",2014,32
+"Acadian Flycatcher",2015,39
+"Acadian Flycatcher",2016,22
+"Acadian Flycatcher",2017,38
+"Acadian Flycatcher",2018,42
+"Acadian Flycatcher",2019,43
+"Acadian Flycatcher",2020,46
+"Acadian Flycatcher",2021,56
+"Acadian Flycatcher",2022,65
+"Acadian Flycatcher",2023,72
+"Acadian Flycatcher",2024,67
+"Acadian Flycatcher",2025,73
 "American Crow",1999,804
 "American Crow",2000,820
 "American Crow",2001,894
@@ -269,6 +296,33 @@
 "Brown-headed Nuthatch",2023,53
 "Brown-headed Nuthatch",2024,54
 "Brown-headed Nuthatch",2025,80
+"Canada Goose",1999,129
+"Canada Goose",2000,180
+"Canada Goose",2001,254
+"Canada Goose",2002,94
+"Canada Goose",2003,98
+"Canada Goose",2004,178
+"Canada Goose",2005,163
+"Canada Goose",2006,120
+"Canada Goose",2007,67
+"Canada Goose",2008,173
+"Canada Goose",2009,53
+"Canada Goose",2010,152
+"Canada Goose",2011,182
+"Canada Goose",2012,165
+"Canada Goose",2013,112
+"Canada Goose",2014,91
+"Canada Goose",2015,113
+"Canada Goose",2016,81
+"Canada Goose",2017,80
+"Canada Goose",2018,58
+"Canada Goose",2019,104
+"Canada Goose",2020,41
+"Canada Goose",2021,88
+"Canada Goose",2022,80
+"Canada Goose",2023,134
+"Canada Goose",2024,127
+"Canada Goose",2025,71
 "Carolina Chickadee",1999,229
 "Carolina Chickadee",2000,212
 "Carolina Chickadee",2001,222
@@ -485,6 +539,33 @@
 "Eastern Bluebird",2023,279
 "Eastern Bluebird",2024,277
 "Eastern Bluebird",2025,189
+"Eastern Kingbird",1999,23
+"Eastern Kingbird",2000,26
+"Eastern Kingbird",2001,27
+"Eastern Kingbird",2002,23
+"Eastern Kingbird",2003,12
+"Eastern Kingbird",2004,10
+"Eastern Kingbird",2005,21
+"Eastern Kingbird",2006,21
+"Eastern Kingbird",2007,19
+"Eastern Kingbird",2008,19
+"Eastern Kingbird",2009,20
+"Eastern Kingbird",2010,18
+"Eastern Kingbird",2011,17
+"Eastern Kingbird",2012,12
+"Eastern Kingbird",2013,22
+"Eastern Kingbird",2014,13
+"Eastern Kingbird",2015,15
+"Eastern Kingbird",2016,20
+"Eastern Kingbird",2017,14
+"Eastern Kingbird",2018,12
+"Eastern Kingbird",2019,15
+"Eastern Kingbird",2020,10
+"Eastern Kingbird",2021,10
+"Eastern Kingbird",2022,18
+"Eastern Kingbird",2023,15
+"Eastern Kingbird",2024,31
+"Eastern Kingbird",2025,19
 "Eastern Meadowlark",1999,144
 "Eastern Meadowlark",2000,85
 "Eastern Meadowlark",2001,114
@@ -566,6 +647,33 @@
 "Eastern Towhee",2023,107
 "Eastern Towhee",2024,95
 "Eastern Towhee",2025,99
+"Eastern Whip-poor-will",1999,12
+"Eastern Whip-poor-will",2000,29
+"Eastern Whip-poor-will",2001,8
+"Eastern Whip-poor-will",2002,21
+"Eastern Whip-poor-will",2003,12
+"Eastern Whip-poor-will",2004,10
+"Eastern Whip-poor-will",2005,11
+"Eastern Whip-poor-will",2006,9
+"Eastern Whip-poor-will",2007,10
+"Eastern Whip-poor-will",2008,12
+"Eastern Whip-poor-will",2009,12
+"Eastern Whip-poor-will",2010,19
+"Eastern Whip-poor-will",2011,7
+"Eastern Whip-poor-will",2012,11
+"Eastern Whip-poor-will",2013,5
+"Eastern Whip-poor-will",2014,8
+"Eastern Whip-poor-will",2015,12
+"Eastern Whip-poor-will",2016,12
+"Eastern Whip-poor-will",2017,7
+"Eastern Whip-poor-will",2018,6
+"Eastern Whip-poor-will",2019,4
+"Eastern Whip-poor-will",2020,8
+"Eastern Whip-poor-will",2021,4
+"Eastern Whip-poor-will",2022,3
+"Eastern Whip-poor-will",2023,6
+"Eastern Whip-poor-will",2024,5
+"Eastern Whip-poor-will",2025,8
 "Eastern Wood-Pewee",1999,114
 "Eastern Wood-Pewee",2000,109
 "Eastern Wood-Pewee",2001,115
@@ -620,6 +728,33 @@
 "European Starling",2023,118
 "European Starling",2024,65
 "European Starling",2025,99
+"Field Sparrow",1999,56
+"Field Sparrow",2000,24
+"Field Sparrow",2001,33
+"Field Sparrow",2002,54
+"Field Sparrow",2003,27
+"Field Sparrow",2004,47
+"Field Sparrow",2005,36
+"Field Sparrow",2006,33
+"Field Sparrow",2007,36
+"Field Sparrow",2008,38
+"Field Sparrow",2009,24
+"Field Sparrow",2010,29
+"Field Sparrow",2011,26
+"Field Sparrow",2012,17
+"Field Sparrow",2013,22
+"Field Sparrow",2014,17
+"Field Sparrow",2015,26
+"Field Sparrow",2016,23
+"Field Sparrow",2017,16
+"Field Sparrow",2018,27
+"Field Sparrow",2019,23
+"Field Sparrow",2020,14
+"Field Sparrow",2021,18
+"Field Sparrow",2022,21
+"Field Sparrow",2023,12
+"Field Sparrow",2024,19
+"Field Sparrow",2025,16
 "Fish Crow",1999,23
 "Fish Crow",2000,24
 "Fish Crow",2001,24
@@ -647,6 +782,87 @@
 "Fish Crow",2023,51
 "Fish Crow",2024,79
 "Fish Crow",2025,81
+"Grasshopper Sparrow",1999,12
+"Grasshopper Sparrow",2000,12
+"Grasshopper Sparrow",2001,13
+"Grasshopper Sparrow",2002,10
+"Grasshopper Sparrow",2003,12
+"Grasshopper Sparrow",2004,15
+"Grasshopper Sparrow",2005,16
+"Grasshopper Sparrow",2006,6
+"Grasshopper Sparrow",2007,11
+"Grasshopper Sparrow",2008,12
+"Grasshopper Sparrow",2009,11
+"Grasshopper Sparrow",2010,13
+"Grasshopper Sparrow",2011,11
+"Grasshopper Sparrow",2012,8
+"Grasshopper Sparrow",2013,13
+"Grasshopper Sparrow",2014,10
+"Grasshopper Sparrow",2015,11
+"Grasshopper Sparrow",2016,8
+"Grasshopper Sparrow",2017,11
+"Grasshopper Sparrow",2018,18
+"Grasshopper Sparrow",2019,11
+"Grasshopper Sparrow",2020,13
+"Grasshopper Sparrow",2021,7
+"Grasshopper Sparrow",2022,9
+"Grasshopper Sparrow",2023,14
+"Grasshopper Sparrow",2024,17
+"Grasshopper Sparrow",2025,7
+"Gray Catbird",1999,35
+"Gray Catbird",2000,24
+"Gray Catbird",2001,27
+"Gray Catbird",2002,27
+"Gray Catbird",2003,24
+"Gray Catbird",2004,20
+"Gray Catbird",2005,32
+"Gray Catbird",2006,20
+"Gray Catbird",2007,33
+"Gray Catbird",2008,41
+"Gray Catbird",2009,23
+"Gray Catbird",2010,39
+"Gray Catbird",2011,26
+"Gray Catbird",2012,27
+"Gray Catbird",2013,16
+"Gray Catbird",2014,29
+"Gray Catbird",2015,20
+"Gray Catbird",2016,22
+"Gray Catbird",2017,29
+"Gray Catbird",2018,20
+"Gray Catbird",2019,25
+"Gray Catbird",2020,21
+"Gray Catbird",2021,18
+"Gray Catbird",2022,24
+"Gray Catbird",2023,22
+"Gray Catbird",2024,16
+"Gray Catbird",2025,20
+"Great Blue Heron",1999,14
+"Great Blue Heron",2000,14
+"Great Blue Heron",2001,9
+"Great Blue Heron",2002,15
+"Great Blue Heron",2003,7
+"Great Blue Heron",2004,22
+"Great Blue Heron",2005,21
+"Great Blue Heron",2006,18
+"Great Blue Heron",2007,18
+"Great Blue Heron",2008,31
+"Great Blue Heron",2009,26
+"Great Blue Heron",2010,19
+"Great Blue Heron",2011,17
+"Great Blue Heron",2012,20
+"Great Blue Heron",2013,24
+"Great Blue Heron",2014,24
+"Great Blue Heron",2015,21
+"Great Blue Heron",2016,22
+"Great Blue Heron",2017,24
+"Great Blue Heron",2018,21
+"Great Blue Heron",2019,16
+"Great Blue Heron",2020,11
+"Great Blue Heron",2021,20
+"Great Blue Heron",2022,21
+"Great Blue Heron",2023,17
+"Great Blue Heron",2024,12
+"Great Blue Heron",2025,22
 "Great Crested Flycatcher",1999,43
 "Great Crested Flycatcher",2000,31
 "Great Crested Flycatcher",2001,51
@@ -674,6 +890,33 @@
 "Great Crested Flycatcher",2023,105
 "Great Crested Flycatcher",2024,74
 "Great Crested Flycatcher",2025,101
+"Hooded Warbler",1999,10
+"Hooded Warbler",2000,13
+"Hooded Warbler",2001,17
+"Hooded Warbler",2002,30
+"Hooded Warbler",2003,28
+"Hooded Warbler",2004,13
+"Hooded Warbler",2005,8
+"Hooded Warbler",2006,18
+"Hooded Warbler",2007,14
+"Hooded Warbler",2008,10
+"Hooded Warbler",2009,14
+"Hooded Warbler",2010,20
+"Hooded Warbler",2011,17
+"Hooded Warbler",2012,17
+"Hooded Warbler",2013,17
+"Hooded Warbler",2014,25
+"Hooded Warbler",2015,16
+"Hooded Warbler",2016,22
+"Hooded Warbler",2017,20
+"Hooded Warbler",2018,17
+"Hooded Warbler",2019,20
+"Hooded Warbler",2020,28
+"Hooded Warbler",2021,24
+"Hooded Warbler",2022,32
+"Hooded Warbler",2023,22
+"Hooded Warbler",2024,30
+"Hooded Warbler",2025,31
 "House Finch",1999,100
 "House Finch",2000,77
 "House Finch",2001,86
@@ -701,6 +944,33 @@
 "House Finch",2023,146
 "House Finch",2024,137
 "House Finch",2025,173
+"House Sparrow",1999,53
+"House Sparrow",2000,40
+"House Sparrow",2001,45
+"House Sparrow",2002,47
+"House Sparrow",2003,36
+"House Sparrow",2004,22
+"House Sparrow",2005,43
+"House Sparrow",2006,14
+"House Sparrow",2007,35
+"House Sparrow",2008,41
+"House Sparrow",2009,21
+"House Sparrow",2010,23
+"House Sparrow",2011,22
+"House Sparrow",2012,23
+"House Sparrow",2013,22
+"House Sparrow",2014,23
+"House Sparrow",2015,12
+"House Sparrow",2016,8
+"House Sparrow",2017,8
+"House Sparrow",2018,7
+"House Sparrow",2019,12
+"House Sparrow",2020,10
+"House Sparrow",2021,11
+"House Sparrow",2022,7
+"House Sparrow",2023,10
+"House Sparrow",2024,10
+"House Sparrow",2025,2
 "Indigo Bunting",1999,387
 "Indigo Bunting",2000,343
 "Indigo Bunting",2001,381
@@ -728,6 +998,33 @@
 "Indigo Bunting",2023,217
 "Indigo Bunting",2024,204
 "Indigo Bunting",2025,194
+"Killdeer",1999,28
+"Killdeer",2000,33
+"Killdeer",2001,20
+"Killdeer",2002,22
+"Killdeer",2003,16
+"Killdeer",2004,21
+"Killdeer",2005,18
+"Killdeer",2006,28
+"Killdeer",2007,9
+"Killdeer",2008,27
+"Killdeer",2009,21
+"Killdeer",2010,35
+"Killdeer",2011,16
+"Killdeer",2012,27
+"Killdeer",2013,17
+"Killdeer",2014,19
+"Killdeer",2015,15
+"Killdeer",2016,19
+"Killdeer",2017,9
+"Killdeer",2018,7
+"Killdeer",2019,14
+"Killdeer",2020,13
+"Killdeer",2021,20
+"Killdeer",2022,21
+"Killdeer",2023,24
+"Killdeer",2024,19
+"Killdeer",2025,12
 "Mourning Dove",1999,545
 "Mourning Dove",2000,517
 "Mourning Dove",2001,500
@@ -755,6 +1052,33 @@
 "Mourning Dove",2023,404
 "Mourning Dove",2024,444
 "Mourning Dove",2025,399
+"Northern Bobwhite",1999,34
+"Northern Bobwhite",2000,30
+"Northern Bobwhite",2001,48
+"Northern Bobwhite",2002,39
+"Northern Bobwhite",2003,18
+"Northern Bobwhite",2004,31
+"Northern Bobwhite",2005,29
+"Northern Bobwhite",2006,14
+"Northern Bobwhite",2007,25
+"Northern Bobwhite",2008,20
+"Northern Bobwhite",2009,7
+"Northern Bobwhite",2010,13
+"Northern Bobwhite",2011,2
+"Northern Bobwhite",2012,10
+"Northern Bobwhite",2013,5
+"Northern Bobwhite",2014,4
+"Northern Bobwhite",2015,4
+"Northern Bobwhite",2016,7
+"Northern Bobwhite",2017,2
+"Northern Bobwhite",2018,3
+"Northern Bobwhite",2019,3
+"Northern Bobwhite",2020,2
+"Northern Bobwhite",2021,6
+"Northern Bobwhite",2022,5
+"Northern Bobwhite",2023,3
+"Northern Bobwhite",2024,4
+"Northern Bobwhite",2025,2
 "Northern Cardinal",1999,878
 "Northern Cardinal",2000,813
 "Northern Cardinal",2001,852
@@ -809,6 +1133,60 @@
 "Northern Mockingbird",2023,186
 "Northern Mockingbird",2024,227
 "Northern Mockingbird",2025,222
+"Northern Parula",1999,18
+"Northern Parula",2000,19
+"Northern Parula",2001,36
+"Northern Parula",2002,18
+"Northern Parula",2003,29
+"Northern Parula",2004,22
+"Northern Parula",2005,20
+"Northern Parula",2006,18
+"Northern Parula",2007,20
+"Northern Parula",2008,20
+"Northern Parula",2009,23
+"Northern Parula",2010,19
+"Northern Parula",2011,23
+"Northern Parula",2012,20
+"Northern Parula",2013,26
+"Northern Parula",2014,20
+"Northern Parula",2015,29
+"Northern Parula",2016,27
+"Northern Parula",2017,25
+"Northern Parula",2018,30
+"Northern Parula",2019,30
+"Northern Parula",2020,46
+"Northern Parula",2021,46
+"Northern Parula",2022,45
+"Northern Parula",2023,35
+"Northern Parula",2024,52
+"Northern Parula",2025,51
+"Orchard Oriole",1999,19
+"Orchard Oriole",2000,17
+"Orchard Oriole",2001,14
+"Orchard Oriole",2002,36
+"Orchard Oriole",2003,17
+"Orchard Oriole",2004,25
+"Orchard Oriole",2005,27
+"Orchard Oriole",2006,19
+"Orchard Oriole",2007,24
+"Orchard Oriole",2008,23
+"Orchard Oriole",2009,15
+"Orchard Oriole",2010,23
+"Orchard Oriole",2011,20
+"Orchard Oriole",2012,28
+"Orchard Oriole",2013,14
+"Orchard Oriole",2014,10
+"Orchard Oriole",2015,13
+"Orchard Oriole",2016,17
+"Orchard Oriole",2017,12
+"Orchard Oriole",2018,11
+"Orchard Oriole",2019,11
+"Orchard Oriole",2020,19
+"Orchard Oriole",2021,15
+"Orchard Oriole",2022,18
+"Orchard Oriole",2023,18
+"Orchard Oriole",2024,16
+"Orchard Oriole",2025,17
 "Ovenbird",1999,79
 "Ovenbird",2000,61
 "Ovenbird",2001,95
@@ -836,6 +1214,33 @@
 "Ovenbird",2023,67
 "Ovenbird",2024,70
 "Ovenbird",2025,98
+"Pileated Woodpecker",1999,6
+"Pileated Woodpecker",2000,6
+"Pileated Woodpecker",2001,8
+"Pileated Woodpecker",2002,8
+"Pileated Woodpecker",2003,8
+"Pileated Woodpecker",2004,7
+"Pileated Woodpecker",2005,10
+"Pileated Woodpecker",2006,18
+"Pileated Woodpecker",2007,12
+"Pileated Woodpecker",2008,13
+"Pileated Woodpecker",2009,17
+"Pileated Woodpecker",2010,22
+"Pileated Woodpecker",2011,13
+"Pileated Woodpecker",2012,16
+"Pileated Woodpecker",2013,11
+"Pileated Woodpecker",2014,13
+"Pileated Woodpecker",2015,12
+"Pileated Woodpecker",2016,17
+"Pileated Woodpecker",2017,19
+"Pileated Woodpecker",2018,14
+"Pileated Woodpecker",2019,18
+"Pileated Woodpecker",2020,15
+"Pileated Woodpecker",2021,21
+"Pileated Woodpecker",2022,36
+"Pileated Woodpecker",2023,15
+"Pileated Woodpecker",2024,21
+"Pileated Woodpecker",2025,21
 "Pine Warbler",1999,231
 "Pine Warbler",2000,209
 "Pine Warbler",2001,224
@@ -863,6 +1268,33 @@
 "Pine Warbler",2023,188
 "Pine Warbler",2024,198
 "Pine Warbler",2025,200
+"Prairie Warbler",1999,30
+"Prairie Warbler",2000,31
+"Prairie Warbler",2001,38
+"Prairie Warbler",2002,42
+"Prairie Warbler",2003,26
+"Prairie Warbler",2004,26
+"Prairie Warbler",2005,31
+"Prairie Warbler",2006,32
+"Prairie Warbler",2007,40
+"Prairie Warbler",2008,32
+"Prairie Warbler",2009,25
+"Prairie Warbler",2010,21
+"Prairie Warbler",2011,28
+"Prairie Warbler",2012,33
+"Prairie Warbler",2013,13
+"Prairie Warbler",2014,18
+"Prairie Warbler",2015,9
+"Prairie Warbler",2016,7
+"Prairie Warbler",2017,10
+"Prairie Warbler",2018,13
+"Prairie Warbler",2019,24
+"Prairie Warbler",2020,20
+"Prairie Warbler",2021,15
+"Prairie Warbler",2022,17
+"Prairie Warbler",2023,16
+"Prairie Warbler",2024,15
+"Prairie Warbler",2025,11
 "Purple Martin",1999,30
 "Purple Martin",2000,10
 "Purple Martin",2001,27
@@ -944,6 +1376,33 @@
 "Red-eyed Vireo",2023,230
 "Red-eyed Vireo",2024,244
 "Red-eyed Vireo",2025,247
+"Red-shouldered Hawk",1999,13
+"Red-shouldered Hawk",2000,6
+"Red-shouldered Hawk",2001,11
+"Red-shouldered Hawk",2002,19
+"Red-shouldered Hawk",2003,20
+"Red-shouldered Hawk",2004,12
+"Red-shouldered Hawk",2005,13
+"Red-shouldered Hawk",2006,26
+"Red-shouldered Hawk",2007,19
+"Red-shouldered Hawk",2008,18
+"Red-shouldered Hawk",2009,24
+"Red-shouldered Hawk",2010,26
+"Red-shouldered Hawk",2011,13
+"Red-shouldered Hawk",2012,33
+"Red-shouldered Hawk",2013,30
+"Red-shouldered Hawk",2014,27
+"Red-shouldered Hawk",2015,26
+"Red-shouldered Hawk",2016,42
+"Red-shouldered Hawk",2017,28
+"Red-shouldered Hawk",2018,35
+"Red-shouldered Hawk",2019,39
+"Red-shouldered Hawk",2020,25
+"Red-shouldered Hawk",2021,34
+"Red-shouldered Hawk",2022,52
+"Red-shouldered Hawk",2023,39
+"Red-shouldered Hawk",2024,52
+"Red-shouldered Hawk",2025,34
 "Red-winged Blackbird",1999,69
 "Red-winged Blackbird",2000,40
 "Red-winged Blackbird",2001,41
@@ -971,6 +1430,87 @@
 "Red-winged Blackbird",2023,67
 "Red-winged Blackbird",2024,38
 "Red-winged Blackbird",2025,20
+"Ruby-throated Hummingbird",1999,13
+"Ruby-throated Hummingbird",2000,11
+"Ruby-throated Hummingbird",2001,14
+"Ruby-throated Hummingbird",2002,19
+"Ruby-throated Hummingbird",2003,17
+"Ruby-throated Hummingbird",2004,18
+"Ruby-throated Hummingbird",2005,22
+"Ruby-throated Hummingbird",2006,14
+"Ruby-throated Hummingbird",2007,10
+"Ruby-throated Hummingbird",2008,8
+"Ruby-throated Hummingbird",2009,10
+"Ruby-throated Hummingbird",2010,10
+"Ruby-throated Hummingbird",2011,18
+"Ruby-throated Hummingbird",2012,7
+"Ruby-throated Hummingbird",2013,14
+"Ruby-throated Hummingbird",2014,12
+"Ruby-throated Hummingbird",2015,10
+"Ruby-throated Hummingbird",2016,4
+"Ruby-throated Hummingbird",2017,7
+"Ruby-throated Hummingbird",2018,13
+"Ruby-throated Hummingbird",2019,6
+"Ruby-throated Hummingbird",2020,6
+"Ruby-throated Hummingbird",2021,7
+"Ruby-throated Hummingbird",2022,6
+"Ruby-throated Hummingbird",2023,6
+"Ruby-throated Hummingbird",2024,4
+"Ruby-throated Hummingbird",2025,7
+"Scarlet Tanager",1999,33
+"Scarlet Tanager",2000,25
+"Scarlet Tanager",2001,34
+"Scarlet Tanager",2002,26
+"Scarlet Tanager",2003,28
+"Scarlet Tanager",2004,29
+"Scarlet Tanager",2005,18
+"Scarlet Tanager",2006,49
+"Scarlet Tanager",2007,21
+"Scarlet Tanager",2008,23
+"Scarlet Tanager",2009,26
+"Scarlet Tanager",2010,23
+"Scarlet Tanager",2011,31
+"Scarlet Tanager",2012,29
+"Scarlet Tanager",2013,18
+"Scarlet Tanager",2014,26
+"Scarlet Tanager",2015,20
+"Scarlet Tanager",2016,12
+"Scarlet Tanager",2017,21
+"Scarlet Tanager",2018,12
+"Scarlet Tanager",2019,16
+"Scarlet Tanager",2020,19
+"Scarlet Tanager",2021,13
+"Scarlet Tanager",2022,6
+"Scarlet Tanager",2023,4
+"Scarlet Tanager",2024,7
+"Scarlet Tanager",2025,13
+"Song Sparrow",1999,13
+"Song Sparrow",2000,18
+"Song Sparrow",2001,12
+"Song Sparrow",2002,13
+"Song Sparrow",2003,8
+"Song Sparrow",2004,13
+"Song Sparrow",2005,14
+"Song Sparrow",2006,14
+"Song Sparrow",2007,13
+"Song Sparrow",2008,21
+"Song Sparrow",2009,10
+"Song Sparrow",2010,30
+"Song Sparrow",2011,27
+"Song Sparrow",2012,13
+"Song Sparrow",2013,15
+"Song Sparrow",2014,15
+"Song Sparrow",2015,20
+"Song Sparrow",2016,28
+"Song Sparrow",2017,14
+"Song Sparrow",2018,24
+"Song Sparrow",2019,24
+"Song Sparrow",2020,22
+"Song Sparrow",2021,19
+"Song Sparrow",2022,18
+"Song Sparrow",2023,24
+"Song Sparrow",2024,20
+"Song Sparrow",2025,17
 "Summer Tanager",1999,65
 "Summer Tanager",2000,72
 "Summer Tanager",2001,72
@@ -1025,6 +1565,33 @@
 "Tufted Titmouse",2023,368
 "Tufted Titmouse",2024,429
 "Tufted Titmouse",2025,488
+"Turkey Vulture",1999,9
+"Turkey Vulture",2000,12
+"Turkey Vulture",2001,19
+"Turkey Vulture",2002,21
+"Turkey Vulture",2003,16
+"Turkey Vulture",2004,16
+"Turkey Vulture",2005,8
+"Turkey Vulture",2006,12
+"Turkey Vulture",2007,23
+"Turkey Vulture",2008,8
+"Turkey Vulture",2009,14
+"Turkey Vulture",2010,20
+"Turkey Vulture",2011,8
+"Turkey Vulture",2012,27
+"Turkey Vulture",2013,24
+"Turkey Vulture",2014,23
+"Turkey Vulture",2015,13
+"Turkey Vulture",2016,21
+"Turkey Vulture",2017,25
+"Turkey Vulture",2018,18
+"Turkey Vulture",2019,20
+"Turkey Vulture",2020,8
+"Turkey Vulture",2021,18
+"Turkey Vulture",2022,9
+"Turkey Vulture",2023,24
+"Turkey Vulture",2024,20
+"Turkey Vulture",2025,10
 "White-breasted Nuthatch",1999,31
 "White-breasted Nuthatch",2000,43
 "White-breasted Nuthatch",2001,33
@@ -1160,3 +1727,57 @@
 "Yellow-breasted Chat",2023,40
 "Yellow-breasted Chat",2024,37
 "Yellow-breasted Chat",2025,34
+"Yellow-throated Vireo",1999,13
+"Yellow-throated Vireo",2000,11
+"Yellow-throated Vireo",2001,15
+"Yellow-throated Vireo",2002,20
+"Yellow-throated Vireo",2003,30
+"Yellow-throated Vireo",2004,19
+"Yellow-throated Vireo",2005,20
+"Yellow-throated Vireo",2006,12
+"Yellow-throated Vireo",2007,20
+"Yellow-throated Vireo",2008,20
+"Yellow-throated Vireo",2009,12
+"Yellow-throated Vireo",2010,21
+"Yellow-throated Vireo",2011,9
+"Yellow-throated Vireo",2012,7
+"Yellow-throated Vireo",2013,8
+"Yellow-throated Vireo",2014,11
+"Yellow-throated Vireo",2015,15
+"Yellow-throated Vireo",2016,9
+"Yellow-throated Vireo",2017,12
+"Yellow-throated Vireo",2018,11
+"Yellow-throated Vireo",2019,19
+"Yellow-throated Vireo",2020,19
+"Yellow-throated Vireo",2021,13
+"Yellow-throated Vireo",2022,20
+"Yellow-throated Vireo",2023,14
+"Yellow-throated Vireo",2024,18
+"Yellow-throated Vireo",2025,32
+"Yellow-throated Warbler",1999,9
+"Yellow-throated Warbler",2000,10
+"Yellow-throated Warbler",2001,14
+"Yellow-throated Warbler",2002,19
+"Yellow-throated Warbler",2003,11
+"Yellow-throated Warbler",2004,7
+"Yellow-throated Warbler",2005,20
+"Yellow-throated Warbler",2006,17
+"Yellow-throated Warbler",2007,14
+"Yellow-throated Warbler",2008,15
+"Yellow-throated Warbler",2009,13
+"Yellow-throated Warbler",2010,15
+"Yellow-throated Warbler",2011,14
+"Yellow-throated Warbler",2012,12
+"Yellow-throated Warbler",2013,20
+"Yellow-throated Warbler",2014,21
+"Yellow-throated Warbler",2015,30
+"Yellow-throated Warbler",2016,28
+"Yellow-throated Warbler",2017,35
+"Yellow-throated Warbler",2018,35
+"Yellow-throated Warbler",2019,38
+"Yellow-throated Warbler",2020,36
+"Yellow-throated Warbler",2021,35
+"Yellow-throated Warbler",2022,53
+"Yellow-throated Warbler",2023,51
+"Yellow-throated Warbler",2024,53
+"Yellow-throated Warbler",2025,68

@@ -1,6 +1,7 @@
 # Last updated: 02/18/2026 - Anneliese Pinnell
-
+  # 03/02/2026 - switched to difference for migration and log diffs
 # Attempt for all
+
 
 library(tidyverse)
 
@@ -33,28 +34,28 @@ createTraitsAndCorr <- function(traitsFile, corrFile, outFileName, labelLength){
   calculated <- data.frame(sp1 = sp1, sp2 = sp2) |>
     left_join(together, by = c("sp1" = "common_name")) |>
     left_join(together, by = c("sp2" = "common_name")) |> 
-    mutate(dif_mig = abs(Migration.x - Migration.y),
-           dif_habDen = abs(Habitat.Density.x - Habitat.Density.y),
-           dif_mass = abs(Mass.x - Mass.y),
-           dif_tailLen = abs(Tail.Length.x - Tail.Length.y),
-           dif_handWing = abs(Hand.Wing.Index.x - Hand.Wing.Index.y),
-           dif_Secondary = abs(Secondary1.x - Secondary1.y),
-           dif_KippsDist = abs(Kipps.Distance.x - Kipps.Distance.y),
-           dif_wingLen = abs(Wing.Length.x - Wing.Length.y),
-           dif_tarsusLen = abs(Tarsus.Length.x - Tarsus.Length.y),
-           dif_beakDep = abs(Beak.Depth.x - Beak.Depth.y),
-           dif_width = abs(Beak.Width.x - Beak.Width.y),
-           dif_beakLenNare = abs(Beak.Length_Nares.x - Beak.Length_Nares.y),
-           dif_beakLenCulm = abs(Beak.Length_Culmen.x - Beak.Length_Culmen.y), #End of AvoNet
-           dif_clutchMin = abs(Clutch_Min.x - Clutch_Min.y),
-           dif_clutchMax = abs(Clutch_Max.x - Clutch_Max.y),
-           dif_ESI = abs(ESI.x - ESI.y),
-           dif_DB = abs(DB.x - DB.y),
-           dif_HB = abs(HB.x - HB.y),
-           dif_normMax = abs(NormMax.x - NormMax.y),
-           dif_elevaRange = abs(Elevational.Range.x - Elevational.Range.y),
-           dif_weight = abs(Average.Mass.x - Average.Mass.y),
-           dif_LAT = abs(LAT.x - LAT.y)) |>
+    mutate(dif_mig = log(Migration.x/Migration.y),
+           dif_habDen = log(Habitat.Density.x/Habitat.Density.y),
+           dif_mass = log(Mass.x/Mass.y),
+           dif_tailLen = log(Tail.Length.x/Tail.Length.y),
+           dif_handWing = log(Hand.Wing.Index.x/Hand.Wing.Index.y),
+           dif_Secondary = log(Secondary1.x/Secondary1.y),
+           dif_KippsDist = log(Kipps.Distance.x/Kipps.Distance.y),
+           dif_wingLen = log(Wing.Length.x/Wing.Length.y),
+           dif_tarsusLen = log(Tarsus.Length.x/Tarsus.Length.y),
+           dif_beakDep = log(Beak.Depth.x/Beak.Depth.y),
+           dif_width = log(Beak.Width.x/Beak.Width.y),
+           dif_beakLenNare = log(Beak.Length_Nares.x/Beak.Length_Nares.y),
+           dif_beakLenCulm = log(Beak.Length_Culmen.x/Beak.Length_Culmen.y), #End of AvoNet
+           dif_clutchMin = log(Clutch_Min.x/Clutch_Min.y),
+           dif_clutchMax = log(Clutch_Max.x/Clutch_Max.y),
+           dif_ESI = log(ESI.x/ESI.y),
+           dif_DB = log(DB.x/DB.y),
+           dif_HB = log(HB.x/HB.y),
+           dif_normMax = log(NormMax.x/NormMax.y),
+           dif_elevaRange = log(Elevational.Range.x/Elevational.Range.y),
+           dif_weight = log(Average.Mass.x/Average.Mass.y),
+           dif_LAT = log(LAT.x/LAT.y)) |>
     mutate(dif_RLM = RLM.x == RLM.y,
            dif_primHab = Primary.Habitat.x == Primary.Habitat.y,
            dif_primDiet = Primary.Diet.x == Primary.Diet.y,
@@ -119,7 +120,7 @@ createTraitsAndCorr("data/traits/SpringTraits.csv",
                     "data/traits/SpringTraitsAndCorr.csv", 9)
 
 #Residents
-createTraitsAndCorr("data/traits/residentTraits.csv",
-                    "data/corrMatrices/residents_delta_y_corr_matrix.csv",
-                    "data/traits/ResidentTraitsAndCorr.csv", 9)
+#createTraitsAndCorr("data/traits/residentTraits.csv",
+#                    "data/corrMatrices/residents_delta_y_corr_matrix.csv",
+#                    "data/traits/ResidentTraitsAndCorr.csv", 9)
 
