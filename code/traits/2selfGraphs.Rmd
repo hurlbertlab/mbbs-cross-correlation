@@ -47,8 +47,8 @@ listOfData <- list(spring, mbbs, cbc, resident)
 listOfMatrices <- list(springMatrix, mbbsMatrix, cbcMatrix)
 listOfHeat <- list(springHeat, mbbsHeat, mbbsHeat)
 seasons <- c("Spring", "mBBS", "Christmas Bird Count", "Residents")
+intersections <- intersect(names(springHeat), intersect(names(cbcHeat), names(mbbsHeat)))
 ```
-
 
 
 # Density of correlation values by survey
@@ -82,6 +82,7 @@ dev.off()
 ```
 
 
+
 # Density of correlation values by survey subset
 ```{r}
 listOfFigures <- list()
@@ -111,21 +112,20 @@ histPlot
 dev.off()
 ```
 
+
+
 # Subsets pheatmap
 ```{r}
 
-intersections <- intersect(names(springHeat), intersect(names(cbcHeat), names(mbbsHeat)))
-
 cbcHeat <- cbcHeat |> select(any_of(intersections))
-springheat <- springHeat |> select(any_of(intersections))
+springHeat <- springHeat |> select(any_of(intersections))
 mbbsHeat <- mbbsHeat |> select(any_of(intersections))
 
 
 #COME BACK HERE
 #Gets row/col order based on mbbs
-cor_matrixMbbs <- cor(mbbs, method = "spearman")
-temp1 <- pheatmap(cor_matrixMbbs, color = hcl.colors(50, "RdBu"), main = "mBBS",
-                  breaks = seq(-1, 1, by = 0.04))
+cor_matrixmBBS <- cor(mbbsHeat, method = "spearman")
+temp1 <- pheatmap(cor_matrixmBBS, color = hcl.colors(50, "RdBu"), main = "mbbs", breaks = seq(-1, 1, by = 0.04))
 rowOrder <- temp1$tree_row$order
 colOrder <- temp1$tree_col$order
 
@@ -156,10 +156,106 @@ createCorrMatrixSubset <- function(survey, heatmapName, sizeWH, title){
   return(readable_corr)
 }
 
-cbcMatrix <- createCorrMatrixSubset(cbc, "CBCSubset", 600, "CBC - Subset Yearly Abundance Change Matrix")
-mbbsMatrix <- createCorrMatrixSubset(mbbs, "mBBSSubset", 600, "mBBS - Subset Yearly Abundance Change Matrix")
-springMatrix <- createCorrMatrixSubset(spring, "SpringSubset", 600, "Spring - Subset to mBBS Yearly Abundance Change Matrix")
+cbcMatrix <- createCorrMatrixSubset(cbcHeat, "CBCSubset", 600, "CBC - Subset Yearly Abundance Change Matrix")
 
+mbbsMatrix <- createCorrMatrixSubset(mbbsHeat, "mBBSSubset", 600, "mBBS - Subset Yearly Abundance Change Matrix")
+
+springMatrix <- createCorrMatrixSubset(springHeat, "SpringSubset", 600, "Spring - Subset to mBBS Yearly Abundance Change Matrix")
 
 ```
-# Random Forest Models
+
+
+
+# Yay GLMS!
+```{r}
+literature <- c("dif_mass", "dif_mig", "dif_trophicLvl", "dif_clutchMax")
+importantRF <- c("dif_wingLen", "dif_KippsDist", "dif_mass", "dif_Secondary")
+randomInterests <- c("dif_mig", "dif_mass", "dif_HB", "dif_clutchMax")
+interest <- literature
+formula <- paste("corr ~", paste(interest, collapse = " + "))
+
+glm_model <- glm(formula, data = spring, family="gaussian")
+summary(glm_model)
+```
+
+# Display extreme high values and extreme lows for each correlation matrix
+```{r}
+getMaxMin <- function(fileName, surveyName){
+  maxMbbs <- fileName |> 
+    filter(corr != 1) |>
+    filter(corr == max(corr)) |>
+    select(c("sp1", "sp2", "corr")) |>
+    mutate("Survey" = surveyName)
+  
+  minMbbs <- fileName |>
+    filter(corr == min(corr)) |>
+    select(c("sp1", "sp2", "corr")) |>
+    mutate("Survey" = surveyName)
+
+  joined <- rbind(maxMbbs, minMbbs)
+  return(joined)
+}
+
+allJoined <- rbind(getMaxMin(spring, "Spring"), getMaxMin(mbbs, "mBBS"),
+                   getMaxMin(cbc, "CBC"), getMaxMin(resident, "Residents"))
+
+
+allJoined <- allJoined |>
+  rename("Species A" = sp1, "Species B" = sp2, 
+         "Correlation" = corr)|>
+  gt() |> 
+  tab_header(
+    title = "Minimum and Maximum Correlation Values",
+    subtitle = "1999-2025"
+  ) |>
+  fmt_number(
+    columns = everything(),
+    decimals = 4
+  )
+
+allJoined
+```
+
+
+# SUBSET - Display extreme high values and extreme lows for each correlation matrix
+```{r}
+intersections
+subCBC <- cbc |> filter(sp1 %in% intersections & sp2 %in% intersections)
+subSpring <- spring |> filter(sp1 %in% intersections & sp2 %in% intersections)
+subMbbs <- mbbs |> filter(sp1 %in% intersections & sp2 %in% intersections)
+
+getMaxMin <- function(fileName, surveyName){
+  maxMbbs <- fileName |> 
+    filter(corr != 1) |>
+    filter(corr == max(corr)) |>
+    select(c("sp1", "sp2", "corr")) |>
+    mutate("Survey" = surveyName)
+  
+  minMbbs <- fileName |>
+    filter(corr == min(corr)) |>
+    select(c("sp1", "sp2", "corr")) |>
+    mutate("Survey" = surveyName)
+
+  joined <- rbind(maxMbbs, minMbbs)
+  return(joined)
+}
+
+allJoined <- rbind(getMaxMin(subSpring, "Spring"), getMaxMin(subMbbs, "mBBS"),
+                   getMaxMin(subCBC, "CBC"))
+
+
+allJoined <- allJoined |>
+  rename("Species A" = sp1, "Species B" = sp2, 
+         "Correlation" = corr)|>
+  gt() |> 
+  tab_header(
+    title = "Minimum and Maximum Correlation Values",
+    subtitle = "1999-2025"
+  ) |>
+  fmt_number(
+    columns = everything(),
+    decimals = 4
+  )
+
+allJoined
+```

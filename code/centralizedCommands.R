@@ -7,13 +7,10 @@
 ## Overall creates correlation heatmaps and corr matricies
 source("code/corr/0CBCtoCorrectFormat.R")
 source("code/corr/0cleanCBCNames.R")
-source("code/corr/0SpringToCorrectFormat.R")
-source("code/corr/0pullResidents.R")
 source("code/corr/1predictMissingMBBS.R")
 source("code/corr/1combineMBBSAndPredicted.R")
 source("code/corr/2createWideLong.R")
 source("code/corr/3makeCorrMatrix.R")
-source("code/corr/0pullResidents.R")
 
 #Gets relevant species from BirdBase and AvoNet
 source("code/traits/0spInterest.R")

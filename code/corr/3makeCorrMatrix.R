@@ -54,40 +54,7 @@ createMatrixPlot("data/CBCHistoricData/CBCMergedDeltaY.csv",
                  "cbc_delta_y_corr_matrix","CBC Delta Y Correlation Matrix (1999-2025) By Effort Hour", 
                  900, 2, 5)
 
-#Run for CBC non-Delta Y
-createMatrixPlot("data/CBCHistoricData/CBCMergedWide.csv",
-                 "cbc_corr_matrix","CBC Correlation Matrix (1999-2025) By Effort Hour", 
-                 900, 2, 5)
-
-
 #Run for mBBS Delta Y
 createMatrixPlot("data/mbbs/mbbsDeltaYWide.csv",
                  "mbbs_delta_y_corr_matrix","mBBS Delta Y Correlation Matrix (1999-2025)",
                  600, 1, 2)
-
-#Run for mBBS non-Delta Y
-createMatrixPlot("data/mbbs/mbbsWide.csv",
-                 "mbbs_corr_matrix","mBBS Correlation Matrix (1999-2025)", 
-                 600, 1, 2)
-
-#Run for Spring 
-createMatrixPlot("data/Spring/SpringWide.csv",
-                 "spring_corr_matrix","Spring Correlation Matrix (1999-2025)", 
-                 900, 2, 5)
-
-#Run for Spring delta Y
-createMatrixPlot("data/Spring/SpringDeltaYWide.csv",
-                 "spring_delta_y_corr_matrix","Spring Delta Y Correlation Matrix (1999-2025)", 
-                 900, 2, 5)
-
-#Run for residents delta Y
-createMatrixPlot("data/residents/deltaYChangeWide.csv",
-                 "residents_delta_y_corr_matrix","Residents Seasonal Difference Delta Y Correlation Matrix (1999-2025)", 
-                 600, 2, 5)
-
-#Run for residents
-createMatrixPlot("data/residents/residentSpeciesWide.csv",
-                 "residents_corr_matrix","Residents Seasonal Change Correlation Matrix (1999-2025)", 
-                 600, 2, 5)
-
-

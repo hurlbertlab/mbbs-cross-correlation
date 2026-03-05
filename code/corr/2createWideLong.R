@@ -120,9 +120,4 @@ makeWideLong(fileName = "data/mbbs/mbbsMerged.csv",
              deltaYLong = "data/mbbs/mbbsDeltaYLong.csv",
              minimum = 1)
 
-#Spring
-makeWideLong("data/Spring/SpringMerged.csv", "data/Spring/SpringLong.csv",
-             "data/Spring/SpringWide.csv", "data/Spring/SpringDeltaYWide.csv",
-             "data/Spring/SpringDeltaYLong.csv",
-              0.2)
 
