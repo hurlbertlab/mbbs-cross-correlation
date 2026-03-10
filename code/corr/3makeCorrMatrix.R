@@ -45,7 +45,7 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
   readable_corr <- readable_corr[!duplicated(apply(readable_corr[,1:2], 1, function(row) paste(sort(row), collapse=""))),]
   
   write.csv(sorted_corr, file = paste("data/corrMatrices/", name_png, ".csv", sep = ""), row.names = TRUE)
-  
+  return(sorted_corr)
 }
 
 
@@ -58,3 +58,16 @@ createMatrixPlot("data/CBCHistoricData/CBCMergedDeltaY.csv",
 createMatrixPlot("data/mbbs/mbbsDeltaYWide.csv",
                  "mbbs_delta_y_corr_matrix","mBBS Delta Y Correlation Matrix (1999-2025)",
                  600, 1, 2)
+
+# Testing!
+testFile <- createMatrixPlot("data/testingData/3makeCorrTest.csv",
+                 "testingData/3makeCorrMatrixTest", "yeehaw Testing",
+                 600, 1, 2)
+expectedFile <- read.csv("data/testingData/3makeCorrExpected.csv", row.names = 1)
+
+if(test_that("test for equivilance",
+             expect_equal(testFile, expectedFile, tolerance = .1))){
+  beepr::beep(4)
+}else{
+  beepr::beep(9)
+}

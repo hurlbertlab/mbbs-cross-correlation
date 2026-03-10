@@ -45,3 +45,13 @@ if ("common_name" %in% colnames(CBCData) && "common_name" %in% colnames(uniqueNa
 }
 
 write.csv(CBCData2, "data/CBCHistoricData/CBCMerged.csv", row.names = FALSE)
+
+# TESTING
+if(test_that("testing output matches expected output", 
+             expect_equal(sum(CBCData2$common_name %in% uniqueNames$common_name), 0))){
+  beepr::beep(4)
+}else{
+  beepr::beep(9)
+}
+
+

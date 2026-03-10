@@ -1,19 +1,17 @@
 # Created 1/22/2026
 # Last updated: 1/28/2026 - Anneliese Pinnell
+# Updated 03/05/2026 w/testing and set year to be numeric
 
 # The goal of this code is to convert the CBC data to the same 
 # format as mBBS
 # Needed columns: year, common_name, count, sci_name
-# Year is in CountYear first 4 char
-# common_name is before [] in COM_NAME
-# REVISION 1-28-2026 - count is NumberByPartyHours
-# OLD: count is how_manyCW
-# sci name is within [] of COM_NAME
 
 library(tidyr)
 library(dplyr)
+library(testthat)
+library(beepr)
 
-makeSmallCSV <- function(fileName, outName, skipNum, removeNum){
+makeSmallCSV <- function(fileName, skipNum, removeNum){
   #Skips weather data
   originalFile <- read.csv(fileName, skip = skipNum, header = TRUE)
   #Keeps only bird data (removes people)
@@ -31,7 +29,7 @@ makeSmallCSV <- function(fileName, outName, skipNum, removeNum){
   runningCSV$sci_name <- gsub("\\[|\\]|\\{|\\}|\\(|\\)", "", runningCSV$sci_name)
   
   #Sources year from CountYear
-  runningCSV$year <- substr(runningCSV$CountYear, start = 1, stop = 4)
+  runningCSV$year <- as.numeric(substr(runningCSV$CountYear, start = 1, stop = 4))
   
   #Renames NumberByPartyHours to count
   runningCSV$NumberByPartyHours <- as.numeric(as.character(runningCSV$NumberByPartyHours))
@@ -42,34 +40,40 @@ makeSmallCSV <- function(fileName, outName, skipNum, removeNum){
   finalCSV[finalCSV == ""] <- 0
   finalCSV[is.na(finalCSV)] <- 0
   
-  write.csv(finalCSV, outName, row.names = FALSE)
+  return(finalCSV)
   
 }
 
 #NCCP
-makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCCP-1901-2025].csv",
-             "data/CBCHistoricData/CBCRaw/CBCRawCP.csv", 255, 1026)
+nccp <- makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCCP-1901-2025].csv",
+                     255, 1026)
 
 #NCDU
-makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCDU-1901-2025].csv",
-             "data/CBCHistoricData/CBCRaw/CBCRawDU.csv", 195, 776)
+ncdu <- makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCDU-1901-2025].csv", 
+                     195, 776)
 
 #NCJL
-makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCJL-1901-2025].csv",
-             "data/CBCHistoricData/CBCRaw/CBCRawJL.csv", 159, 1237)
-
-# Example dataframes
-df1 <- read.csv("data/CBCHistoricData/CBCRaw/CBCRawCP.csv")
-df2 <- read.csv("data/CBCHistoricData/CBCRaw/CBCRawDU.csv")
-df3 <- read.csv("data/CBCHistoricData/CBCRaw/CBCRawJL.csv")
-
+ncjl <- makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCJL-1901-2025].csv", 
+                     159, 1237)
 
 #Need to combine csvs into one!
-mergedDF <- rbind(df1, df2)
-mergedDFFinal <- rbind(mergedDF, df3)
+mergedDF <- rbind(nccp, ncdu)
+mergedDFFinal <- rbind(mergedDF, ncjl)
 
-mergedDFFinal[mergedDFFinal == ""] <- 0
-mergedDFFinal[is.na(mergedDFFinal)] <- 0
+#mergedDFFinal[mergedDFFinal == ""] <- 0
+#mergedDFFinal[is.na(mergedDFFinal)] <- 0
 
 write.csv(mergedDFFinal, "data/CBCHistoricData/CBCMerged.csv", row.names = FALSE)
 
+# TESTING - PASSED
+testOutput <- makeSmallCSV("data/testingData/0CBCToCorrectTest.csv",
+                           1, 0)
+
+testExpected <- read.csv("data/testingData/0CBCToCorrectExpected.csv")
+
+if(test_that("testing output matches expected output", 
+          expect_equal(testOutput, testExpected))){
+  beepr::beep(4)
+}else{
+  beepr::beep(9)
+}

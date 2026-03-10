@@ -47,8 +47,9 @@ createTraitsAndCorr <- function(traitsFile, corrFile, outFileName, labelLength){
            dif_width = log(Beak.Width.x/Beak.Width.y),
            dif_beakLenNare = log(Beak.Length_Nares.x/Beak.Length_Nares.y),
            dif_beakLenCulm = log(Beak.Length_Culmen.x/Beak.Length_Culmen.y), #End of AvoNet
-           dif_clutchMin = log(Clutch_Min.x/Clutch_Min.y),
-           dif_clutchMax = log(Clutch_Max.x/Clutch_Max.y),
+           dif_clutch = log((Clutch_Max.x - Clutch_Min.x)/(Clutch_Max.y - Clutch_Min.y)),
+           #dif_clutchMin = log(Clutch_Min.x/Clutch_Min.y),
+           #dif_clutchMax = log(Clutch_Max.x/Clutch_Max.y),
            dif_ESI = log(ESI.x/ESI.y),
            dif_DB = log(DB.x/DB.y),
            dif_HB = log(HB.x/HB.y),
@@ -114,10 +115,6 @@ createTraitsAndCorr("data/traits/mbbsTraits.csv",
 createTraitsAndCorr("data/traits/CBCTraits.csv", 
                     "data/corrMatrices/cbc_delta_y_corr_matrix.csv",
                     "data/traits/CBCTraitsAndCorr.csv", 7)
-# Spring
-createTraitsAndCorr("data/traits/SpringTraits.csv", 
-                    "data/corrMatrices/spring_delta_y_corr_matrix.csv",
-                    "data/traits/SpringTraitsAndCorr.csv", 9)
 
 #Residents
 #createTraitsAndCorr("data/traits/residentTraits.csv",

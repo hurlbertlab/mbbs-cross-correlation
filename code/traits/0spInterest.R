@@ -41,9 +41,6 @@ createCSV("data/mbbs/mbbsLong.csv", "data/traits/mbbsTraits.csv")
 #Create CBC
 createCSV("data/CBCHistoricData/CBCMergedLong.csv", "data/traits/CBCTraits.csv")
 
-#Create Spring
-createCSV("data/Spring/SpringLong.csv", "data/traits/springTraits.csv")
-
 #Create Resident
 createCSV("data/residents/residentSpeciesLong.csv", "data/traits/residentTraits.csv")
 

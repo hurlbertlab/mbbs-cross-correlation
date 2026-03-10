@@ -7,6 +7,8 @@
 library(dplyr)
 library(tidyr)
 
+options(warn = -1)
+
 #function to filter the mbbs to just the species that we want
 filter_to_min_sightings <- function(mbbs, min_sightings_per_route = 9, min_num_routes = 5) {
   
@@ -58,3 +60,23 @@ predicted <- read.csv("data/mbbs/predictedRouteValues.csv") %>%
 mergedDF <- rbind(mbbs, predicted)
 
 write.csv(mergedDF, file = "data/mbbs/mbbsMerged.csv", row.names = FALSE)
+
+# Testing!
+testFile1 <- read.csv("data/testingData/1combineMBBSTest1.csv") |>
+                   filter_to_min_sightings(min_sightings_per_route = 1, min_num_routes = 1) |>
+                   dplyr::select(year, common_name, count)
+
+testFile2 <- read.csv("data/testingData/1combineMBBSTest2.csv") |>
+                   filter_to_min_sightings(min_sightings_per_route = 1, min_num_routes = 1) |>
+                   dplyr::select(year, common_name, count)
+
+merged <- rbind(testFile2, testFile1)
+expectedFile <- read.csv("data/testingData/1combineMBBSExpected.csv")
+
+
+if(test_that("testing output matches expected output", 
+             expect_equal(merged, expectedFile, tolerance = 0.0001))){
+  beepr::beep(4)
+}else{
+  beepr::beep(9)
+}

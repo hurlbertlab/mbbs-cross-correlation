@@ -120,4 +120,34 @@ makeWideLong(fileName = "data/mbbs/mbbsMerged.csv",
              deltaYLong = "data/mbbs/mbbsDeltaYLong.csv",
              minimum = 1)
 
+# Testing
+makeWideLong(fileName = "data/testingData/2createWideLongTest.csv",
+             longName = "data/testingData/2CWLLong.csv",
+             wideName = "data/testingData/2CWLWide.csv",
+             deltaYName = "data/testingData/2CWLDYWide.csv",
+             deltaYLong = "data/testingData/2CWLDYLong.csv",
+             minimum = 1)
+
+testCWLWide <- read.csv("data/testingData/2CWLWide.csv")
+expectedCWLWide <- read.csv("data/testingData/2CWLWideExpected.csv")
+
+testCWLLong <- read.csv("data/testingData/2CWLLong.csv")
+expectedCWLLong <- read.csv("data/testingData/2CWLLongExpected.csv")
+
+testCWLDYWide <- read.csv("data/testingData/2CWLDYWide.csv")
+expectedCWLDYWide <- read.csv("data/testingData/2CWLDYWideExpected.csv")
+
+testCWLDYLong <- read.csv("data/testingData/2CWLDYLong.csv")
+expectedCWLDYLong <- read.csv("data/testingData/2CWLDYLongExpected.csv")
+
+if(test_that("expect equal outputs",{
+  expect_equal(testCWLWide, expectedCWLWide, tolerance = 0.0001)
+  expect_equal(testCWLLong, expectedCWLLong, tolerance = 0.0001)
+  expect_equal(testCWLDYWide, expectedCWLDYWide, tolerance = 0.0001)
+  expect_equal(testCWLDYLong, expectedCWLDYLong, tolerance = 0.0001)
+})){
+  beepr::beep(4)
+}else{
+  beepr::beep(9)
+}
 
