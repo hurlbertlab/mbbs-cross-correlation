@@ -36,10 +36,9 @@ mBBS Data Paper (no link yet)
 [AVONET Data Paper](https://opentraits.org/datasets/avonet.html)
 
 ### Other Potential Relevant Data
-* Weather data
+[Weather Data](https://rpubs.com/dbebber/r_geospatial)
 
 #### Research Notes
-Access must be requested first 
 [Literature Notes](https://docs.google.com/document/d/1at3Hib5Ea5zSsLNSf5tRDdZrxj_c0CH3ApWH42N576c/edit?usp=sharing)
 
 
