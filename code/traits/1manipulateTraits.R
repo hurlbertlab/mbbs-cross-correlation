@@ -56,7 +56,10 @@ createTraitsAndCorr <- function(traitsFile, corrFile, outFileName, labelLength){
            dif_normMax = log(NormMax.x/NormMax.y),
            dif_elevaRange = log(Elevational.Range.x/Elevational.Range.y),
            dif_weight = log(Average.Mass.x/Average.Mass.y),
-           dif_LAT = log(LAT.x/LAT.y)) |>
+           dif_LAT = log(LAT.x/LAT.y),
+           dif_migDist = log(migDistanceKM.x/migDistanceKM.y),
+           dif_arth = log(Final_Fraction_Diet_Wt.x/Final_Fraction_Diet_Wt.y)
+           ) |>
     mutate(dif_RLM = RLM.x == RLM.y,
            dif_primHab = Primary.Habitat.x == Primary.Habitat.y,
            dif_primDiet = Primary.Diet.x == Primary.Diet.y,
@@ -102,6 +105,8 @@ createTraitsAndCorr <- function(traitsFile, corrFile, outFileName, labelLength){
   cleaned$sp1 <- calculated$sp1
   cleaned$sp2 <- calculated$sp2
   cleaned$corr <- calculated$corr
+  cleaned <- cleaned |>
+    mutate(across(where(is.numeric), ~ifelse(is.infinite(.), 0, .)))
   
   write.csv(cleaned, outFileName)
 }
@@ -115,9 +120,3 @@ createTraitsAndCorr("data/traits/mbbsTraits.csv",
 createTraitsAndCorr("data/traits/CBCTraits.csv", 
                     "data/corrMatrices/cbc_delta_y_corr_matrix.csv",
                     "data/traits/CBCTraitsAndCorr.csv", 7)
-
-#Residents
-#createTraitsAndCorr("data/traits/residentTraits.csv",
-#                    "data/corrMatrices/residents_delta_y_corr_matrix.csv",
-#                    "data/traits/ResidentTraitsAndCorr.csv", 9)
-

@@ -26,28 +26,22 @@ knitr::opts_knit$set(root.dir = "/Users/anneliesepinnell/UNC Current/HurlbertLab
 
 # Read in data
 ```{r}
-spring <- read.csv("data/traits/springTraitsAndCorr.csv") |> 
-  filter(corr !=1)
 mbbs <- read.csv("data/traits/mbbsTraitsAndCorr.csv")|> 
   filter(corr !=1)
 cbc <- read.csv("data/traits/CBCTraitsAndCorr.csv")|> 
   filter(corr !=1)
-resident <- read.csv("data/traits/ResidentTraitsAndCorr.csv")|> 
-  filter(corr !=1)
 
-springMatrix <- read.csv("data/corrMatrices/subsets/SpringSubset.csv")
 mbbsMatrix <- read.csv("data/corrMatrices/subsets/mBBSSubset.csv")
 cbcMatrix <- read.csv("data/corrMatrices/subsets/CBCSubset.csv")
 
 cbcHeat <- read.csv("data/CBCHistoricData/CBCMERGEDDeltaY.csv") |> select(-year)
-springHeat <- read.csv("data/Spring/SpringDeltaYWide.csv")|> select(-year)
 mbbsHeat <- read.csv("data/mbbs/mbbsDeltaYWide.csv")|> select(-year)
 
-listOfData <- list(spring, mbbs, cbc, resident)
-listOfMatrices <- list(springMatrix, mbbsMatrix, cbcMatrix)
-listOfHeat <- list(springHeat, mbbsHeat, mbbsHeat)
-seasons <- c("Spring", "mBBS", "Christmas Bird Count", "Residents")
-intersections <- intersect(names(springHeat), intersect(names(cbcHeat), names(mbbsHeat)))
+listOfData <- list(mbbs, cbc)
+listOfMatrices <- list(mbbsMatrix, cbcMatrix)
+listOfHeat <- list( mbbsHeat, mbbsHeat)
+seasons <- c("mBBS", "Christmas Bird Count")
+intersections <- intersect(names(cbcHeat), names(mbbsHeat))
 ```
 
 
@@ -171,10 +165,11 @@ springMatrix <- createCorrMatrixSubset(springHeat, "SpringSubset", 600, "Spring 
 literature <- c("dif_mass", "dif_mig", "dif_trophicLvl", "dif_clutchMax")
 importantRF <- c("dif_wingLen", "dif_KippsDist", "dif_mass", "dif_Secondary")
 randomInterests <- c("dif_mig", "dif_mass", "dif_HB", "dif_clutchMax")
-interest <- literature
+newVars <- c("dif_mass","dif_migDist", "dif_arth", "dif_trophicLvl")
+interest <- newVars
 formula <- paste("corr ~", paste(interest, collapse = " + "))
 
-glm_model <- glm(formula, data = spring, family="gaussian")
+glm_model <- glm(formula, data = cbc, family="gaussian")
 summary(glm_model)
 ```
 

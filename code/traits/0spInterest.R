@@ -12,11 +12,16 @@ library(tidyverse)
 #Load in data
 AVONET <- read_excel("data/AVONET.xlsx", sheet = "AVONET2_eBird")
 BIRDBASE <- read_excel("data/BIRDBASE.xlsx", sheet = "Data")
+selfCalculated <- read.csv("data/traits/selfCalculated.csv")
+mbbsNames <- c(unique(read.csv("data/mbbs/mbbsLong.csv")$common_name))
+cbcNames <- c(unique(read.csv("data/CBCHistoricData/CBCMergedLong.csv")$common_name))
+bothNames <- intersect(mbbsNames,cbcNames)
+
 
 createCSV <- function(fileName, OutputCSVName){
   fileName <- read.csv(fileName)
   #Get list of names from data
-  uniqueNames <- unique(fileName$common_name)
+  uniqueNames <- bothNames
   
   #Filter BIRDBASE and AVONET to only have needed columns
   BBKeep <- c("English Name (BirdLife > IOC > Clements>AviList)", "AviList v1 2025",
@@ -28,10 +33,14 @@ createCSV <- function(fileName, OutputCSVName){
   AVOFiltered <- AVONET |>
     filter(`Species2` %in% BBFiltered$"AviList v1 2025") |>
     select(all_of(AVOKeep))
+  selfCalcFiltered <- selfCalculated |>
+    filter(`common_name` %in% uniqueNames)
+  
   
   #Join BIRDBASE and AVONET
   combined <- left_join(BBFiltered, AVOFiltered, by = c("AviList v1 2025"="Species2"))
-  
+  combined <- left_join(combined, selfCalcFiltered, by = c("English Name (BirdLife > IOC > Clements>AviList)"=
+                                                           "common_name"))
   write_csv(combined, OutputCSVName)
 }
 
@@ -42,5 +51,5 @@ createCSV("data/mbbs/mbbsLong.csv", "data/traits/mbbsTraits.csv")
 createCSV("data/CBCHistoricData/CBCMergedLong.csv", "data/traits/CBCTraits.csv")
 
 #Create Resident
-createCSV("data/residents/residentSpeciesLong.csv", "data/traits/residentTraits.csv")
+#createCSV("data/residents/residentSpeciesLong.csv", "data/traits/residentTraits.csv")
 

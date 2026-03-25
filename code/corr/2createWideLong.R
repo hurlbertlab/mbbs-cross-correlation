@@ -11,6 +11,7 @@
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(testthat)
 
 makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, minimum){
   #Read in data
@@ -43,8 +44,10 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
     filter(common_name %in% birds_to_keep) %>%
     slice(1:n())  #resets index
   } else {
-    #data is bbs
-    only_kept_birds <- bird_info
+    #Determines birds to keep
+    birds_to_keep <- bird_info %>%
+      filter(!common_name %in% excluded_species)
+    only_kept_birds <- birds_to_keep
   }
   
   #Sums species to have a count for each year

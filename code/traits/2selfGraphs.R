@@ -3,7 +3,6 @@ library(ggplot2)
 library(tidyverse)
 library(patchwork)
 library(randomForest)
-library(ggplot2)
 library(dplyr)
 library(ggeffects)
 library(sjPlot)
@@ -11,15 +10,13 @@ library(gt)
 library(DHARMa)
 library(gtsummary)
 library(beepr)
+library(corrplot)
+library(pheatmap)
 
 #Read in data
-spring <- read.csv("data/traits/springTraitsAndCorr.csv") |> 
-  filter(corr !=1)
 mbbs <- read.csv("data/traits/mbbsTraitsAndCorr.csv")|> 
   filter(corr !=1)
 cbc <- read.csv("data/traits/CBCTraitsAndCorr.csv")|> 
-  filter(corr !=1)
-resident <- read.csv("data/traits/ResidentTraitsAndCorr.csv")|> 
   filter(corr !=1)
 
 
@@ -316,3 +313,19 @@ testUniformity(simr)
 #Normal distrbution
 testDispersion(simr)
 
+# Correlation matrix for 
+mbbsCor <- read.csv("data/traits/mbbsTraitsAndCorr.csv")|> 
+  filter(corr !=1)
+mbbsCor$Name <- paste(mbbsCor$sp1, mbbsCor$sp2)
+mbbsCor <- mbbsCor |>
+  select(-c("sp1", "sp2", "X"))
+rownames(mbbsCor) <- mbbsCor$Name
+mbbsCor$Name <- NULL
+mbbsCor$dif_clutch <- NULL
+
+cbcCor <- read.csv("data/traits/CBCTraitsAndCorr.csv")|> 
+  filter(corr !=1)
+
+cor_matrix <- cor(mbbsCor, method = "spearman")
+pheatmap(cor_matrix, color = hcl.colors(50, "RdBu"),
+         breaks = seq(-1, 1, by = 0.04))
