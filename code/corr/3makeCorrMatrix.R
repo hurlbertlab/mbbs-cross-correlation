@@ -57,7 +57,7 @@ createMatrixPlot("data/CBCHistoricData/CBCMergedDeltaY.csv",
 #Run for mBBS Delta Y
 createMatrixPlot("data/mbbs/mbbsDeltaYWide.csv",
                  "mbbs_delta_y_corr_matrix","mBBS Delta Y Correlation Matrix (1999-2025)",
-                 600, 1, 2)
+                 900, 1, 2)
 
 # Testing!
 testFile <- createMatrixPlot("data/testingData/3makeCorrTest.csv",

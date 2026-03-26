@@ -19,7 +19,9 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
   
   #need to hash out species included/excluded basis
   #Exclude hawks and owls, waterbirds, and categories that are not species-specific.
-  excluded_species <- c("Red-shouldered Hawk", "Killdeer", "Great Blue Heron", "Canada Goose", "Turkey Vulture", "Black Vulture", "crow sp.","duck sp.","hawk sp.","passerine sp.", "swallow sp.","waterfowl sp.","woodpecker sp.", "Summer/Scarlet Tanager", "Sharp-shinned/Cooper's Hawk", "Mute Swan", "Mississippi Kite", "Mallard", "Green Heron","Great Horned Owl", "Great Egret", "Eastern Screech-Owl", "Double-crested Cormorant", "Cooper's Hawk" , "Sharp-shinned Hawk", "Broad-winged Hawk", "Belted Kingfisher", "Barred Owl", "American/Fish Crow", "Accipitrine hawk sp.", "Yellow-crowned Night Heron", "Wood Duck", "Osprey", "Bald Eagle", "Red-tailed Hawk")
+  #Self added: Ring-billed Gull
+  excluded_species <- c("Red-shouldered Hawk", "Killdeer", "Great Blue Heron", "Canada Goose", "Turkey Vulture", "Black Vulture", "crow sp.","duck sp.","hawk sp.","passerine sp.", "swallow sp.","waterfowl sp.","woodpecker sp.", "Summer/Scarlet Tanager", "Sharp-shinned/Cooper's Hawk", "Mute Swan", "Mississippi Kite", "Mallard", "Green Heron","Great Horned Owl", "Great Egret", "Eastern Screech-Owl", "Double-crested Cormorant", "Cooper's Hawk" , "Sharp-shinned Hawk", "Broad-winged Hawk", "Belted Kingfisher", "Barred Owl", "American/Fish Crow", "Accipitrine hawk sp.", "Yellow-crowned Night Heron", "Wood Duck", "Osprey", "Bald Eagle", "Red-tailed Hawk",
+                        "Ring-billed Gull", "Herring Gull", "American Coot", "Bonaparte's Gull", "Ruddy Duck")
   
   #Only includes data from 1999 and on
   bird_info <- bird_info |>
@@ -29,37 +31,37 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
   #MBBS data has already been filtered to species that meet a minimum bound when we made the dataset, so just filter out unreliable species for CBC and Spring
   if (!str_detect(fileName, "bbs")) { 
   #Calculates means
-  bird_means <- bird_info %>%
-    group_by(common_name) %>%
+  bird_means <- bird_info |>
+    group_by(common_name) |>
     summarise(mean_value = mean(count, na.rm = TRUE))
   
   #Determines birds to keep
-  birds_to_keep <- bird_means %>%
-    filter(mean_value > minimum) %>%
-    filter(!common_name %in% excluded_species) %>%
+  birds_to_keep <- bird_means |>
+    filter(mean_value > minimum) |>
+    filter(!common_name %in% excluded_species) |>
     pull(common_name)
   
   #Filters main data to only have kept birds
-  only_kept_birds <- bird_info %>%
-    filter(common_name %in% birds_to_keep) %>%
+  only_kept_birds <- bird_info |>
+    filter(common_name %in% birds_to_keep) |>
     slice(1:n())  #resets index
   } else {
     #Determines birds to keep
-    birds_to_keep <- bird_info %>%
+    birds_to_keep <- bird_info |>
       filter(!common_name %in% excluded_species)
     only_kept_birds <- birds_to_keep
   }
   
   #Sums species to have a count for each year
-  individual_species <- only_kept_birds %>%
-    group_by(common_name, year) %>%
+  individual_species <- only_kept_birds |>
+    group_by(common_name, year) |>
     summarise(count = sum(count), .groups = "drop")
   
   #Long form data
   write.csv(individual_species, longName, row.names = FALSE)
   
   #Pivots data to wide form
-  df_pivot <- individual_species %>%
+  df_pivot <- individual_species |>
     pivot_wider(names_from = common_name, values_from = count, values_fill = 0)
   
   #To csv file
@@ -97,7 +99,7 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
   write.csv(delta_y_change, deltaYLong, row.names = FALSE)
   
   #Pivots data to wide form
-  df_pivot <- delta_y_change %>%
+  df_pivot <- delta_y_change |>
     pivot_wider(names_from = common_name, values_from = yoy_change, values_fill = 0)
   
   #To csv file
@@ -112,7 +114,7 @@ makeWideLong(fileName = "data/CBCHistoricData/CBCMerged.csv",
              longName = "data/CBCHistoricData/CBCMergedLong.csv",
              wideName = "data/CBCHistoricData/CBCMergedWide.csv", 
              deltaYName = "data/CBCHistoricData/CBCMergedDeltaY.csv",
-             deltaYLong = "data/CBCHistoricData/CSBSDeltaYLong.csv", 
+             deltaYLong = "data/CBCHistoricData/CBCDeltaYLong.csv", 
              minimum = 0.2)
 
 #mBBS

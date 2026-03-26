@@ -21,7 +21,7 @@ bothNames <- intersect(mbbsNames,cbcNames)
 createCSV <- function(fileName, OutputCSVName){
   fileName <- read.csv(fileName)
   #Get list of names from data
-  uniqueNames <- bothNames
+  uniqueNames <- c(unique(fileName$common_name))
   
   #Filter BIRDBASE and AVONET to only have needed columns
   BBKeep <- c("English Name (BirdLife > IOC > Clements>AviList)", "AviList v1 2025",
@@ -49,7 +49,3 @@ createCSV("data/mbbs/mbbsLong.csv", "data/traits/mbbsTraits.csv")
 
 #Create CBC
 createCSV("data/CBCHistoricData/CBCMergedLong.csv", "data/traits/CBCTraits.csv")
-
-#Create Resident
-#createCSV("data/residents/residentSpeciesLong.csv", "data/traits/residentTraits.csv")
-

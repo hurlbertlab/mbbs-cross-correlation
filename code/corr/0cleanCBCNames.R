@@ -38,9 +38,9 @@ uniqueNames$correct_name <- toMap[match(uniqueNames$common_name, names(toMap))]
 # Replaces only incorrect names
 if ("common_name" %in% colnames(CBCData) && "common_name" %in% colnames(uniqueNames)) {
   # Replace common_name in CBCData with correct_name from uniqueNames
-  CBCData2 <- CBCData %>%
-    left_join(uniqueNames, by = "common_name") %>%
-    mutate(common_name = ifelse(!is.na(correct_name), correct_name, common_name)) %>%
+  CBCData2 <- CBCData |>
+    left_join(uniqueNames, by = "common_name") |>
+    mutate(common_name = ifelse(!is.na(correct_name), correct_name, common_name)) |>
     select(-correct_name)
 }
 

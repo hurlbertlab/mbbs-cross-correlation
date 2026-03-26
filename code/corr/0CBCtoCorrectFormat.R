@@ -18,7 +18,7 @@ makeSmallCSV <- function(fileName, skipNum, removeNum){
   rowsToKeep <- head(originalFile, n = nrow(originalFile) - removeNum)
   
   #Splits COM_NAME into com_name and sci_name
-  runningCSV <- rowsToKeep %>% 
+  runningCSV <- rowsToKeep |> 
     separate(
       col = COM_NAME,
       into = c("common_name", "sci_name"),
@@ -36,7 +36,7 @@ makeSmallCSV <- function(fileName, skipNum, removeNum){
   runningCSV$count <- runningCSV$NumberByPartyHours
   
   #Only includes wanted columns
-  finalCSV <- runningCSV %>% select(year, common_name, sci_name, count)
+  finalCSV <- runningCSV |> select(year, common_name, sci_name, count)
   finalCSV[finalCSV == ""] <- 0
   finalCSV[is.na(finalCSV)] <- 0
   
@@ -59,9 +59,6 @@ ncjl <- makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCJL-1901-2
 #Need to combine csvs into one!
 mergedDF <- rbind(nccp, ncdu)
 mergedDFFinal <- rbind(mergedDF, ncjl)
-
-#mergedDFFinal[mergedDFFinal == ""] <- 0
-#mergedDFFinal[is.na(mergedDFFinal)] <- 0
 
 write.csv(mergedDFFinal, "data/CBCHistoricData/CBCMerged.csv", row.names = FALSE)
 
