@@ -171,6 +171,7 @@ formula <- paste("corr ~", paste(interest, collapse = " + "))
 
 glm_model <- glm(formula, data = cbc, family="gaussian")
 summary(glm_model)
+plot(glm_model, which = 4)
 ```
 
 # Display extreme high values and extreme lows for each correlation matrix

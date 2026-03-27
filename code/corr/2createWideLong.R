@@ -12,6 +12,7 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(testthat)
+library(tidyverse)
 
 makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, minimum){
   #Read in data
