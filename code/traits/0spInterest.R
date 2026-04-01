@@ -36,11 +36,18 @@ createCSV <- function(fileName, OutputCSVName){
   selfCalcFiltered <- selfCalculated |>
     filter(`common_name` %in% uniqueNames)
   
+  #Impute Evening Grosbeak as short disatnce migrant (1)
+  #AVOFiltered <- AVOFiltered |>
+  #  mutate(Species2 == ifelse("Coccothraustes vespertinus", 0, Migration))
+    
+  
+  #Impute Hairy Woodpecker as non-migrants (0)
   
   #Join BIRDBASE and AVONET
   combined <- left_join(BBFiltered, AVOFiltered, by = c("AviList v1 2025"="Species2"))
   combined <- left_join(combined, selfCalcFiltered, by = c("English Name (BirdLife > IOC > Clements>AviList)"=
                                                            "common_name"))
+  
   write_csv(combined, OutputCSVName)
 }
 

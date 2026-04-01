@@ -22,7 +22,7 @@ makeWideLong <- function(fileName, longName, wideName, deltaYName, deltaYLong, m
   #Exclude hawks and owls, waterbirds, and categories that are not species-specific.
   #Self added: Ring-billed Gull
   excluded_species <- c("Red-shouldered Hawk", "Killdeer", "Great Blue Heron", "Canada Goose", "Turkey Vulture", "Black Vulture", "crow sp.","duck sp.","hawk sp.","passerine sp.", "swallow sp.","waterfowl sp.","woodpecker sp.", "Summer/Scarlet Tanager", "Sharp-shinned/Cooper's Hawk", "Mute Swan", "Mississippi Kite", "Mallard", "Green Heron","Great Horned Owl", "Great Egret", "Eastern Screech-Owl", "Double-crested Cormorant", "Cooper's Hawk" , "Sharp-shinned Hawk", "Broad-winged Hawk", "Belted Kingfisher", "Barred Owl", "American/Fish Crow", "Accipitrine hawk sp.", "Yellow-crowned Night Heron", "Wood Duck", "Osprey", "Bald Eagle", "Red-tailed Hawk",
-                        "Ring-billed Gull", "Herring Gull", "American Coot", "Bonaparte's Gull", "Ruddy Duck")
+                        "Ring-billed Gull", "Herring Gull", "American Coot", "Bonaparte's Gull", "Ruddy Duck", "Hooded Merganser", "Horned Grebe", "Bufflehead", "Ring-necked Duck", "Rock Pigeon (Feral Pigeon)", "Greater Yellowlegs", "Common Loon", "American Bittern", "American Black Duck", "Lesser Scaup", "Northern Harrier", "Green-winged Teal", "gull sp.", "Pied-billed Grebe", "Tundra Swan", "Loggerhead Shrike", "sparrow sp.", "Gadwall", "Spotted Sandpiper", "Accipiter sp.", "blackbird sp.", "Merlin", "Lesser Yellowlegs", "Greater Scaup", "Canvasback", "Northern Shoveler", "Common Goldeneye", "American Wigeon", "Wilson's Snipe", "Wild Turkey", "Redhead", "American Kestrel", "Northern Pintail", "Red-breasted Merganser", "Greater/Lesser Scaup", "Hairy Woodpecker", "Evening Grosbeak")
   
   #Only includes data from 1999 and on
   bird_info <- bird_info |>
@@ -116,7 +116,7 @@ makeWideLong(fileName = "data/CBCHistoricData/CBCMerged.csv",
              wideName = "data/CBCHistoricData/CBCMergedWide.csv", 
              deltaYName = "data/CBCHistoricData/CBCMergedDeltaY.csv",
              deltaYLong = "data/CBCHistoricData/CBCDeltaYLong.csv", 
-             minimum = 0.2)
+             minimum = 0)
 
 #mBBS
 makeWideLong(fileName = "data/mbbs/mbbsMerged.csv", 

@@ -15,7 +15,7 @@ source("code/corr/3makeCorrMatrix.R") # Tested
 
 #Gets relevant species from BirdBase and AvoNet
 source("code/traits/0spInterest.R")
-source("code/traits/1selfCalculations.R")
+#source("code/traits/1selfCalculations.R") #Not using
 source("code/traits/1manipulateTraits.R")
 source("code/traits/2selfGraphs.R")
 

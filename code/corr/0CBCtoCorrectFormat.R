@@ -55,10 +55,28 @@ ncdu <- makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCDU-1901-2
 #NCJL
 ncjl <- makeSmallCSV("data/CBCHistoricData/HistoricalResultsByCount [NCJL-1901-2025].csv", 
                      159, 1237)
+# Add filtering for CBC
+# Only species found across all routes
+allRouteBirds <- intersect(intersect(unique(nccp$common_name), unique(ncdu$common_name)), 
+                           unique(ncjl$common_name))
+
 
 #Need to combine csvs into one!
 mergedDF <- rbind(nccp, ncdu)
-mergedDFFinal <- rbind(mergedDF, ncjl)
+mergedDF <- rbind(mergedDF, ncjl) |>
+  filter(common_name %in% allRouteBirds)
+
+#Must be seen at least 20 years 
+temp <- mergedDF |> 
+  filter(count > 0) |>
+  group_by(common_name) |>
+  summarize(n_years = n_distinct(year)) |>
+  ungroup() |>
+  filter(n_years >= 20) |>
+  select(common_name)
+
+mergedDFFinal <- mergedDF |>
+  filter(common_name %in% c(temp$common_name))
 
 write.csv(mergedDFFinal, "data/CBCHistoricData/CBCMerged.csv", row.names = FALSE)
 
