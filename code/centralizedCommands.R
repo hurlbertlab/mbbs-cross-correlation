@@ -10,8 +10,10 @@ source("code/corr/0CBCtoCorrectFormat.R") # Tested
 source("code/corr/0cleanCBCNames.R") # Tested
 source("code/corr/1predictMissingMBBS.R") # Tested
 source("code/corr/1combineMBBSAndPredicted.R") # Tested
+source("code/corr/1pullResidents.R") # Tested
 source("code/corr/2createWideLong.R") # Tested
 source("code/corr/3makeCorrMatrix.R") # Tested
+source("code/corr/3SubsetCorrMatrix.R")
 
 #Gets relevant species from BirdBase and AvoNet
 source("code/traits/0spInterest.R")
@@ -20,9 +22,9 @@ source("code/traits/1manipulateTraits.R")
 source("code/traits/2selfGraphs.R")
 
 #Get range and daymet data
-source("code/rangeTemp/1getEBirdRanges.R")
-source("code/rangeTemp/1getNorthAmerica.R")
-source("code/rangeTemp/2DAYMETAccess.R")
+#source("code/rangeTemp/1getEBirdRanges.R")
+#source("code/rangeTemp/1getNorthAmerica.R")
+#source("code/rangeTemp/2DAYMETAccess.R")
 
 
 

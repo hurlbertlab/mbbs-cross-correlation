@@ -63,16 +63,18 @@ allRouteBirds <- intersect(intersect(unique(nccp$common_name), unique(ncdu$commo
 
 #Need to combine csvs into one!
 mergedDF <- rbind(nccp, ncdu)
+
+#Must be seen on all routes
 mergedDF <- rbind(mergedDF, ncjl) |>
   filter(common_name %in% allRouteBirds)
 
-#Must be seen at least 20 years 
+#Must be seen at least 13 years (26/2)
 temp <- mergedDF |> 
   filter(count > 0) |>
   group_by(common_name) |>
   summarize(n_years = n_distinct(year)) |>
   ungroup() |>
-  filter(n_years >= 20) |>
+  filter(n_years >= 13) |>
   select(common_name)
 
 mergedDFFinal <- mergedDF |>

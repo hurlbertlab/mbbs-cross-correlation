@@ -12,7 +12,7 @@ library(tidyverse)
 #Load in data
 AVONET <- read_excel("data/AVONET.xlsx", sheet = "AVONET2_eBird")
 BIRDBASE <- read_excel("data/BIRDBASE.xlsx", sheet = "Data")
-selfCalculated <- read.csv("data/traits/selfCalculated.csv")
+#selfCalculated <- read.csv("data/traits/selfCalculated.csv")
 mbbsNames <- c(unique(read.csv("data/mbbs/mbbsLong.csv")$common_name))
 cbcNames <- c(unique(read.csv("data/CBCHistoricData/CBCMergedLong.csv")$common_name))
 bothNames <- intersect(mbbsNames,cbcNames)
@@ -33,8 +33,6 @@ createCSV <- function(fileName, OutputCSVName){
   AVOFiltered <- AVONET |>
     filter(`Species2` %in% BBFiltered$"AviList v1 2025") |>
     select(all_of(AVOKeep))
-  selfCalcFiltered <- selfCalculated |>
-    filter(`common_name` %in% uniqueNames)
   
   #Impute Evening Grosbeak as short disatnce migrant (1)
   #AVOFiltered <- AVOFiltered |>
@@ -45,8 +43,6 @@ createCSV <- function(fileName, OutputCSVName){
   
   #Join BIRDBASE and AVONET
   combined <- left_join(BBFiltered, AVOFiltered, by = c("AviList v1 2025"="Species2"))
-  combined <- left_join(combined, selfCalcFiltered, by = c("English Name (BirdLife > IOC > Clements>AviList)"=
-                                                           "common_name"))
   
   write_csv(combined, OutputCSVName)
 }
@@ -56,3 +52,9 @@ createCSV("data/mbbs/mbbsLong.csv", "data/traits/mbbsTraits.csv")
 
 #Create CBC
 createCSV("data/CBCHistoricData/CBCMergedLong.csv", "data/traits/CBCTraits.csv")
+
+#Create CBC resident
+createCSV("data/residents/CBCLong.csv", "data/traits/residents/CBCResidentTraits.csv")
+
+#Create mbbs resident
+createCSV("data/residents/mbbsLong.csv", "data/traits/residents/mbbsResidentTraits.csv")

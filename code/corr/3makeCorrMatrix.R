@@ -15,8 +15,9 @@ library(png)
 library(pheatmap)
 library(correlation)
 library(tidyverse)
+library(testthat)
 
-createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSize){
+createMatrixPlot <- function(fileName, name_png, width, fontSize, titleSize){
   wide_form_data = read.csv(fileName) |>
     mutate(year = NULL) #gets rid of year column if it exists, and if it doesn't exist does nothing
 
@@ -25,8 +26,9 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
   #Creates corrplot figure with insig values
   #Opening a PNG device
   png(filename = paste("figures/heatmap/", name_png, ".png", sep = ""), width = width, height = width)
-  pheatmap(cor_matrix, color = hcl.colors(50, "RdBu"), main = title,
-           breaks = seq(-1, 1, by = 0.04))
+  pheatmap(cor_matrix, color = hcl.colors(50, "RdBu"),
+           breaks = seq(-1, 1, by = 0.04),
+           fontsize = 15)
   dev.off()
   
   sorted_corr <- cor_sort(cor_matrix)
@@ -51,17 +53,17 @@ createMatrixPlot <- function(fileName, name_png, title, width, fontSize, titleSi
 
 #Run for CBC Delta Y
 createMatrixPlot("data/CBCHistoricData/CBCMergedDeltaY.csv",
-                 "cbc_delta_y_corr_matrix","CBC Delta Y Correlation Matrix (1999-2025) By Effort Hour", 
-                 900, 2, 5)
+                 "cbc_delta_y_corr_matrix", 
+                 1200, 2, 5)
 
 #Run for mBBS Delta Y
 createMatrixPlot("data/mbbs/mbbsDeltaYWide.csv",
-                 "mbbs_delta_y_corr_matrix","mBBS Delta Y Correlation Matrix (1999-2025)",
-                 900, 1, 2)
+                 "mbbs_delta_y_corr_matrix",
+                 1200, 1, 2)
 
 # Testing!
 testFile <- createMatrixPlot("data/testingData/3makeCorrTest.csv",
-                 "testingData/3makeCorrMatrixTest", "yeehaw Testing",
+                 "testingData/3makeCorrMatrixTest",
                  600, 1, 2)
 expectedFile <- read.csv("data/testingData/3makeCorrExpected.csv", row.names = 1)
 

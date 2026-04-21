@@ -3,7 +3,6 @@
 
 # The purpose of this file is to merge mBBS data and the predicted route counts
 # required columns = common_name, count, and year
-# Added - set mBBS to be by effort hour (3 min x 20 stops = 60 mins --> 34 routes)
 
 library(dplyr)
 library(tidyr)
@@ -62,12 +61,19 @@ predicted <- read.csv("data/mbbs/predictedRouteValues.csv") |>
 
 mergedDF <- rbind(mbbs, predicted)
 
-# Divide all values by effort hours
-# Each route has 20, 3 min surveys (60min), so divide by # routes
-mergedDF <- mergedDF |>
-  mutate(count = count/34)
-  
-write.csv(mergedDF, file = "data/mbbs/mbbsMerged.csv", row.names = FALSE)
+#Must be seen across 13 years
+temp <- mergedDF |> 
+  filter(count > 0) |>
+  group_by(common_name) |>
+  summarize(n_years = n_distinct(year)) |>
+  ungroup() |>
+  filter(n_years >= 13) |>
+  select(common_name)
+
+mergedDFFinal <- mergedDF |>
+  filter(common_name %in% c(temp$common_name))
+
+write.csv(mergedDFFinal, file = "data/mbbs/mbbsMerged.csv", row.names = FALSE)
 
 # Testing!
 testFile1 <- read.csv("data/testingData/1combineMBBSTest1.csv") |>

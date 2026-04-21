@@ -35,32 +35,33 @@ createTraitsAndCorr <- function(traitsFile, corrFile, outFileName, labelLength){
     left_join(together, by = c("sp1" = "common_name")) |>
     left_join(together, by = c("sp2" = "common_name")) |> 
     #Clarified with Ivara on 03/30/2026 don't need logs!
-    mutate(dif_mass = Mass.x-Mass.y,
-           dif_tailLen = Tail.Length.x-Tail.Length.y,
-           dif_handWing = Hand.Wing.Index.x-Hand.Wing.Index.y,
-           dif_Secondary = Secondary1.x-Secondary1.y,
-           dif_KippsDist = Kipps.Distance.x-Kipps.Distance.y,
-           dif_wingLen = Wing.Length.x-Wing.Length.y,
-           dif_tarsusLen = Tarsus.Length.x-Tarsus.Length.y,
-           dif_beakDep = Beak.Depth.x-Beak.Depth.y,
-           dif_width = Beak.Width.x-Beak.Width.y,
-           dif_beakLenNare = Beak.Length_Nares.x-Beak.Length_Nares.y,
-           dif_beakLenCulm = Beak.Length_Culmen.x-Beak.Length_Culmen.y, #End of AvoNet
-           dif_clutch = (Clutch_Max.x - Clutch_Min.x)-(Clutch_Max.y - Clutch_Min.y),
+    mutate(dif_mig = abs(Migration.x - Migration.y),
+           dif_habDen = abs(Habitat.Density.x - Habitat.Density.y),
+           dif_mass = abs(Mass.x-Mass.y),
+           dif_tailLen = abs(Tail.Length.x-Tail.Length.y),
+           dif_handWing = abs(Hand.Wing.Index.x-Hand.Wing.Index.y),
+           dif_Secondary = abs(Secondary1.x-Secondary1.y),
+           dif_KippsDist = abs(Kipps.Distance.x-Kipps.Distance.y),
+           dif_wingLen = abs(Wing.Length.x-Wing.Length.y),
+           dif_tarsusLen = abs(Tarsus.Length.x-Tarsus.Length.y),
+           dif_beakDep = abs(Beak.Depth.x-Beak.Depth.y),
+           dif_width = abs(Beak.Width.x-Beak.Width.y),
+           dif_beakLenNare = abs(Beak.Length_Nares.x-Beak.Length_Nares.y),
+           dif_beakLenCulm = abs(Beak.Length_Culmen.x-Beak.Length_Culmen.y), #End of AvoNet
+           dif_clutch = abs((Clutch_Max.x - Clutch_Min.x)-(Clutch_Max.y - Clutch_Min.y)),
            #dif_clutchMin = Clutch_Min.x/Clutch_Min.y),
            #dif_clutchMax = Clutch_Max.x/Clutch_Max.y),
-           dif_ESI = ESI.x-ESI.y,
-           dif_DB = DB.x-DB.y,
-           dif_HB = HB.x-HB.y,
-           dif_normMax = NormMax.x-NormMax.y,
-           dif_elevaRange = Elevational.Range.x-Elevational.Range.y,
-           dif_weight = Average.Mass.x-Average.Mass.y,
-           dif_LAT = LAT.x-LAT.y#,
+           dif_ESI = abs(ESI.x-ESI.y),
+           dif_DB = abs(DB.x-DB.y),
+           dif_HB = abs(HB.x-HB.y),
+           dif_normMax = abs(NormMax.x-NormMax.y),
+           dif_elevaRange = abs(Elevational.Range.x-Elevational.Range.y),
+           dif_weight = abs(Average.Mass.x-Average.Mass.y),
+           dif_LAT = abs(LAT.x-LAT.y)#,
            #dif_migDist = migDistanceKM.x/migDistanceKM.y),
            #dif_arth = Final_Fraction_Diet_Wt.x/Final_Fraction_Diet_Wt.y)
            ) |>
-    mutate(dif_mig = Migration.x == Migration.y,
-           dif_habDen = Habitat.Density.x == Habitat.Density.y,
+    mutate(
            dif_RLM = RLM.x == RLM.y,
            dif_primHab = Primary.Habitat.x == Primary.Habitat.y,
            dif_primDiet = Primary.Diet.x == Primary.Diet.y,
@@ -122,3 +123,13 @@ createTraitsAndCorr("data/traits/mbbsTraits.csv",
 createTraitsAndCorr("data/traits/CBCTraits.csv", 
                     "data/corrMatrices/cbc_delta_y_corr_matrix.csv",
                     "data/traits/CBCTraitsAndCorr.csv", 7)
+
+# CBC Residents
+createTraitsAndCorr("data/traits/residents/CBCResidentTraits.csv", 
+                    "data/corrMatrices/cbc_resident_delta_y_corr_matrix.csv",
+                    "data/traits/residents/CBCResidentTraitsAndCorr.csv", 8)
+
+# mbbs Residents
+createTraitsAndCorr("data/traits/residents/mbbsResidentTraits.csv", 
+                    "data/corrMatrices/mbbs_resident_delta_y_corr_matrix.csv",
+                    "data/traits/residents/mbbsResidentTraitsAndCorr.csv", 8)

@@ -1,0 +1,7 @@
+"","variable_name","coefficient","p_value"
+"dif_mass","Absolute Mass Difference",-0.000183664575962928,0.0503086259134099
+"dif_mig","Absolute Migration Difference",-0.00618044929357071,0.646220192394769
+"dif_trophicLvl","Identical Trophic Level",0.0270788311739214,0.212997518226654
+"dif_primHab","Identical Primary Habitat",0.0635278007392576,0.0195754662714242
+"dif_habDen","Absolute Habitat Density Difference",-0.0182679542576838,0.243719262824586
+"dif_DB","Absolute Diet Breadth Difference",-0.0117358747418933,0.261871036401317
