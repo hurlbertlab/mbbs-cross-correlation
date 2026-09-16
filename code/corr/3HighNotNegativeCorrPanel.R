@@ -47,29 +47,35 @@ par(mfrow = c(1, 3))
 model <- lm(positive$ovenbirdRank ~ positive$catbirdRank)
 slope_val <- round(coef(model)[2], 3)
 subtitle <- paste("Slope:", slope_val)
-plot(positive$catbirdRank, positive$ovenbirdRank, 
+plot(positive$`Gray Catbird`, positive$Ovenbird, 
      main=paste("Positive Spearman's rho\n", "rho:", slope_val),
-     xlab="Gray Catbird", ylab="Ovenbird", 
+     xlab="\u0394 Yearly Abundance Gray Catbird", ylab="\u0394 Yearly Abundance Ovenbird", 
      pch=19, col="blue")
 abline(model, col = "red", lwd = 2)
+abline(h = 0, lty = "dotted")
+abline(v = 0, lty = 3)
 
 
 # Blue Jay vs. American Crow - near zero
 model <- lm(nearZero$blueRank ~ nearZero$americanRank)
 slope_val <- round(coef(model)[2], 3)
-plot(nearZero$blueRank, nearZero$americanRank, 
+plot(nearZero$`Blue Jay`, nearZero$`American Crow`, 
      main=paste("Near Zero Spearman's rho\n", "rho:", slope_val),
-     xlab="Blue Jay", ylab="American Crow", 
+     xlab="\u0394 Yearly Abundance Blue Jay", ylab="\u0394 Yearly Abundance American Crow", 
      pch=19, col="blue")
 abline(model, col = "red", lwd = 2)
+abline(h = 0, lty = "dotted")
+abline(v = 0, lty = 3)
 
 # Tufted Titmouse vs. Eastern Bluebird - negative
 model <- lm(negative$tuftedRank ~ negative$easternRank)
 slope_val <- round(coef(model)[2], 3)
-plot(negative$tuftedRank, negative$easternRank, 
+plot(negative$`Tufted Titmouse`, negative$`Eastern Bluebird`, 
      main=paste("Negative Spearman's rho\n", "rho:", slope_val),,
-     xlab="Tufted Titmouse", ylab="Eastern Bluebird", 
+     xlab="\u0394 Yearly Abundance Tufted Titmouse", ylab="\u0394 Yearly Abundance Eastern Bluebird", 
      pch=19, col="blue")
 abline(model, col = "red", lwd = 2)
+abline(h = 0, lty = "dotted")
+abline(v = 0, lty = 3)
 
 dev.off()

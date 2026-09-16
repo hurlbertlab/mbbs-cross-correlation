@@ -142,6 +142,14 @@ makeWideLong(fileName = "data/residents/mbbsRawLong.csv",
              deltaYLong = "data/residents/mbbsDeltaYLong.csv",
              minimum = 0)
 
+# Spring
+makeWideLong(fileName = "data/Spring/SpringMerged.csv", 
+             longName = "data/Spring/SpringLong.csv",
+             wideName = "data/Spring/SpringWide.csv", 
+             deltaYName = "data/Spring/SpringDeltaYWide.csv",
+             deltaYLong = "data/Spring/SpringDeltaYLong.csv",
+             minimum = 0.2)
+
 # Testing
 makeWideLong(fileName = "data/testingData/2createWideLongTest.csv",
              longName = "data/testingData/2CWLLong.csv",
