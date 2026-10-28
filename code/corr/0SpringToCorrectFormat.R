@@ -11,7 +11,7 @@ library(dplyr)
 library(readxl)
 
 #Chapel Hill
-fileName <- "data/Spring/CHSBC-all-years.xlsx"
+fileName <- "data/Spring/CHSBC-all-years-with-2025-2026-CH-summary.xlsx"
 
 rawData <- read_excel(fileName, skip=3)
 rawData$sort <- NULL
